@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hanyeol Ryu</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f4f0;--surface:#fff;--text:#1a1a1a;--text2:#444;--text3:#999;--accent:#1d5d8a;--accent-h:#124060;--accent-l:#e6f0f7;--border:#ddd9d3;--border-l:#eae7e1;--tag-bg:#ebe6db;--tag-c:#5a5040;--sw:270px;--nh:56px;--serif:'Newsreader',Georgia,serif;--sans:'Outfit',-apple-system,sans-serif;--mw:740px;--ease:.28s cubic-bezier(.4,0,.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nh)+24px)}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+
+nav{position:fixed;top:0;left:0;right:0;height:var(--nh);border-bottom:1px solid var(--border);z-index:100;display:flex;align-items:center;padding:0 36px;backdrop-filter:blur(18px) saturate(1.6);background:rgba(245,244,240,.82)}
+.nn{font-family:var(--serif);font-weight:700;font-size:1.2rem;color:var(--text);text-decoration:none;margin-right:44px;letter-spacing:-.02em}
+.nl{display:flex;gap:2px}.nl a{text-decoration:none;color:var(--text2);font-size:.88rem;font-weight:500;padding:6px 14px;border-radius:8px;transition:all var(--ease)}
+.nl a:hover,.nl a.active{color:var(--accent);background:var(--accent-l)}
+.nh{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--text)}.nh svg{width:22px;height:22px}
+
+.layout{display:flex;max-width:1080px;margin:0 auto;padding:calc(var(--nh)+36px) 36px 0;gap:56px}
+
+.sidebar{width:var(--sw);flex-shrink:0;position:sticky;top:calc(var(--nh)+36px);align-self:flex-start}
+.pp{width:200px;height:200px;border-radius:50%;object-fit:cover;border:4px solid var(--border-l);margin-bottom:22px;box-shadow:0 6px 28px rgba(0,0,0,.07)}
+.sidebar h1{font-family:var(--serif);font-size:1.6rem;font-weight:700;letter-spacing:-.02em;margin-bottom:3px}
+.sidebar .role{font-size:.92rem;color:var(--text2);margin-bottom:18px;line-height:1.5}
+.sl{list-style:none;display:flex;flex-direction:column;gap:11px}
+.sl li{display:flex;align-items:center;gap:9px;font-size:.88rem;color:var(--text2)}
+.sl li svg{width:15px;height:15px;flex-shrink:0;opacity:.45}
+.sl a{color:var(--accent);text-decoration:none;font-weight:500;transition:color var(--ease)}
+.sl a:hover{color:var(--accent-h)}
+.dv{color:var(--text3);margin:0 3px;font-weight:300}
+
+.main{flex:1;min-width:0;max-width:var(--mw);padding-bottom:120px}
+.sec{margin-bottom:64px}
+.st{font-family:var(--serif);font-size:1.85rem;font-weight:700;letter-spacing:-.03em;margin-bottom:22px;position:relative;padding-bottom:14px;color:var(--text)}
+.st::after{content:'';position:absolute;bottom:0;left:0;width:44px;height:3px;background:var(--accent);border-radius:2px}
+.ss{font-family:var(--serif);font-size:1.15rem;font-weight:600;margin-top:30px;margin-bottom:10px;color:var(--text)}
+.main p{margin-bottom:16px;color:var(--text2);line-height:1.82}
+.main p a{color:var(--accent);font-weight:500;text-decoration:none;border-bottom:1px solid transparent;transition:border-color var(--ease)}
+.main p a:hover{border-bottom-color:var(--accent)}
+.em{font-style:italic;color:var(--text)}
+.hi{color:var(--accent);font-weight:600}
+
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 26px}
+.tag{padding:6px 15px;background:var(--tag-bg);color:var(--tag-c);border-radius:20px;font-size:.82rem;font-weight:500}
+
+.py{font-family:var(--serif);font-weight:600;font-size:1.05rem;color:var(--accent);margin-top:28px;margin-bottom:10px}
+.pi{padding:18px 0;border-bottom:1px solid var(--border-l)}.pi:last-child{border-bottom:none}
+.pt{font-weight:600;font-size:1rem;color:var(--text);margin-bottom:5px;line-height:1.52}
+.pa{font-size:.88rem;color:var(--text2);margin-bottom:3px}
+.pa strong{color:var(--accent);font-weight:600}
+.plabel{font-family:var(--serif);font-weight:700;font-size:.82rem;color:var(--text3);margin-right:6px}
+.pv{font-size:.84rem;color:var(--text3);font-style:italic}
+.pl{margin-top:8px;display:flex;gap:8px}
+.pl a{font-size:.76rem;font-weight:600;text-decoration:none;color:var(--accent);padding:3px 12px;border:1.5px solid var(--accent);border-radius:6px;transition:all var(--ease);text-transform:uppercase;letter-spacing:.05em}
+.pl a:hover{background:var(--accent);color:#fff}
+
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.pc{border:1px solid var(--border);border-radius:12px;background:var(--surface);transition:all var(--ease);overflow:hidden}
+.pc:hover{border-color:var(--accent);box-shadow:0 6px 24px rgba(29,93,138,.1);transform:translateY(-2px)}
+.pc img.pth{width:100%;height:180px;object-fit:cover;display:block;border-bottom:1px solid var(--border-l)}
+.pc.wide{grid-column:1/-1}
+.pc.wide img.pth{height:220px}
+.pb{padding:20px 22px 22px}
+.pb h3{font-family:var(--serif);font-size:1.02rem;font-weight:600;margin-bottom:8px;line-height:1.4;color:var(--text)}
+.pb p{font-size:.88rem;color:var(--text2);margin-bottom:10px;line-height:1.65}
+.ts{display:flex;flex-wrap:wrap;gap:5px}
+.ts span{font-size:.72rem;padding:3px 9px;background:var(--accent-l);color:var(--accent);border-radius:5px;font-weight:600}
+
+.ni{display:flex;gap:18px;padding:14px 0;border-bottom:1px solid var(--border-l);align-items:baseline}
+.ni:last-child{border-bottom:none}
+.nd{font-size:.82rem;font-weight:600;color:var(--accent);white-space:nowrap;min-width:82px}
+.nt{font-size:.92rem;color:var(--text2);line-height:1.6}
+.nt a{color:var(--accent);text-decoration:none;font-weight:500}
+.nt a:hover{text-decoration:underline}
+.badge{display:inline-block;padding:1px 8px;border-radius:4px;font-size:.72rem;font-weight:600;margin-right:5px;vertical-align:1px}
+.badge-oral{background:#e8f5e9;color:#2e7d32}
+.badge-poster{background:#fff3e0;color:#e65100}
+.badge-paper{background:var(--accent-l);color:var(--accent)}
+.badge-patent{background:#f3e5f5;color:#7b1fa2}
+
+.cb{padding:26px 30px;border:1px solid var(--border);border-radius:12px;background:var(--surface);margin-top:14px;display:inline-block}
+.cb h3{font-family:var(--serif);font-weight:600;font-size:1rem;margin-bottom:6px}
+.cb a{color:var(--accent);text-decoration:none;font-weight:500;font-size:.95rem}
+.cb a:hover{text-decoration:underline}
+
+footer{text-align:center;padding:44px 20px;font-size:.82rem;color:var(--text3);border-top:1px solid var(--border-l);margin-top:36px}
+
+@media(max-width:860px){
+.nl{display:none;position:absolute;top:var(--nh);left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);flex-direction:column;padding:12px 20px}
+.nl.open{display:flex}.nh{display:block;margin-left:auto}
+.layout{flex-direction:column;padding:calc(var(--nh)+20px) 20px 0;gap:24px}
+.sidebar{width:100%;position:relative;top:0;display:flex;flex-direction:column;align-items:center;text-align:center}
+.sl{align-items:center}.pg{grid-template-columns:1fr}.pc.wide{grid-column:auto}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<a class="nn" href="#about">Hanyeol Ryu</a>
+<div class="nl" id="nv"><a href="#about" class="active">About</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#projects">Projects</a><a href="#news">News</a><a href="#contact">Contact</a></div>
+<button class="nh" onclick="document.getElementById('nv').classList.toggle('open')"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+</nav>
+
+<div class="layout">
+<aside class="sidebar">
+<img class="pp" src="profile.jpeg" alt="Hanyeol Ryu">
+<h1>Hanyeol Ryu</h1>
+<div class="role">Research Assistant<br>Electronics Engineering</div>
+<ul class="sl">
+<li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0L6.343 16.657a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>Pusan National University, Busan</li>
+<li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><a href="mailto:9lo522@pusan.ac.kr">9lo522@pusan.ac.kr</a></li>
+<li><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.11.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg><a href="https://github.com/hyrecon" target="_blank">GitHub</a></li>
+<li><svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><a href="https://www.linkedin.com/in/hanyeol-ryu-ba3821361/" target="_blank">LinkedIn</a></li>
+<li><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 24a7 7 0 110-14 7 7 0 010 14zm0-24L0 9.5l4.838 3.94A8 8 0 0112 9a8 8 0 017.162 4.44L24 9.5z"/></svg><a href="https://scholar.google.com/citations?user=NFQ9YZUAAAAJ&hl=ko&oi=ao" target="_blank">Google Scholar</a><span class="dv">|</span><a href="Curriculum Vitae_HY.pdf" target="_blank">CV</a></li>
+</ul>
+</aside>
+
+<main class="main">
+
+<!-- ABOUT -->
+<section id="about" class="sec">
+<h2 class="st">About</h2>
+<p>I am a research assistant in the Department of Electronics Engineering at <a href="https://ee.pusan.ac.kr">Pusan National University</a> (B.S. '26), advised by <a href="https://scholar.google.com/citations?user=HsUrFQ0AAAAJ">Prof. Sangkil Kim</a>.</p>
+<p>Outside the lab, you'll find me swimming, lifting, making coffee, or exploring electronics just for the fun of understanding how they work. I'm just as curious about what makes a good life as I am about what the universe is really up to.</p>
+</section>
+
+<!-- RESEARCH -->
+<section id="research" class="sec">
+<h2 class="st">Research</h2>
+<p>My research lies at the intersection of <span class="hi">wireless communications</span>, <span class="hi">sensing</span>, and <span class="hi">artificial intelligence</span> — with the goal of building next-generation wireless systems that can simultaneously communicate, sense, and learn from their environment.</p>
+<p>I am broadly interested in the following areas:</p>
+<div class="tags"><span class="tag">Backscatter Communications</span><span class="tag">Channel Modeling &amp; Estimation</span><span class="tag">RF/Antenna Design</span><span class="tag">Software-Defined Radio</span><span class="tag">AI/DL for Wireless Communications</span><span class="tag">Wireless Sensing</span><span class="tag">IoT Systems</span></div>
+
+<h3 class="ss">1. Backscatter Communication System Design</h3>
+<p>I develop end-to-end monostatic backscatter platforms through <span class="em">hardware–software co-design</span>, integrating custom tag circuitry, high-isolation antenna systems, and SDR-based signal processing pipelines to enable scalable, energy-efficient IoT connectivity.</p>
+
+<h3 class="ss">2. Channel Estimation under Hardware Impairments</h3>
+<p>I design estimation frameworks that explicitly account for <span class="em">residual phase drifts</span> and cascaded fading in backscatter links, achieving robust channel recovery where conventional estimators exhibit irreducible error floors.</p>
+
+<h3 class="ss">3. AI-Driven Wireless Signal Processing</h3>
+<p>I am exploring deep learning-based approaches for channel estimation and signal recovery in <span class="em">hardware-constrained wireless systems</span>, targeting scenarios where model-based methods face fundamental limitations.</p>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications" class="sec">
+<h2 class="st">Publications</h2>
+
+<div class="py">2026</div>
+<div class="pi">
+<div class="pt"><span class="plabel">[J2]</span>Ultra-low-power Monostatic Backscatter Platform with Phase-Aware Channel Estimation and System-Level Validation</div>
+<div class="pa"><strong>H. Ryu</strong> and S. Kim</div>
+<div class="pv">arXiv:2601.02227v1 [eess.SP], Jan. 2026</div>
+<div class="pl"><a href="https://arxiv.org/abs/2601.02227" target="_blank">arXiv</a></div>
+</div>
+
+<div class="py">2025</div>
+<div class="pi">
+<div class="pt"><span class="plabel">[J1]</span>Improved Backscattering Communication Range Using Reflection Amplifiers</div>
+<div class="pa">J. Choi, <strong>H. Ryu</strong>, and S. Kim</div>
+<div class="pv">J. Korean Inst. Electromagn. Eng. Sci, vol. 36, no. 2, pp. 266–273, Feb. 2025</div>
+<div class="pl"><a href="#">PDF</a></div>
+</div>
+<div class="pi">
+<div class="pt"><span class="plabel">[C1]</span>High-Isolation Yagi-Uda Antenna Array using Split-Ring Resonators for Practical Backscatter System</div>
+<div class="pa"><strong>H. Ryu</strong> and S. Kim</div>
+<div class="pv">Proc. IEEE AP-S/URSI, 2025, pp. 2877–2879</div>
+<div class="pl"><a href="#">PDF</a></div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="sec">
+<h2 class="st">Projects</h2>
+<div class="pg">
+
+<div class="pc wide">
+<img class="pth" src="thumb_platform.jpg" alt="Over-the-air full-color image reconstruction results">
+<div class="pb">
+<h3>Ultra-Low-Power Monostatic Backscatter Multimedia Communication</h3>
+<p>Built a complete monostatic backscatter link — from a semi-passive tag and SDR reader to a full signal processing chain (DC removal, CFO compensation, phase-aware CE, ZF equalization). Demonstrated zero-error full-color image reconstruction over the air at BER < 10⁻⁷.</p>
+<div class="ts"><span>MATLAB</span><span>GNU Radio</span><span>USRP N200</span><span>PCB Design</span><span>FPGA</span></div>
+</div></div>
+
+<div class="pc">
+<img class="pth" src="thumb_estimation.jpg" alt="Phase-aware channel estimation system model and NMSE results">
+<div class="pb">
+<h3>Phase-Aware Channel Estimation for Backscatter Links</h3>
+<p>Proposed lifted two-parameter LS/LMMSE estimators that jointly resolve the composite channel gain and residual phase slope via first-order linearization, suppressing NMSE by up to 27.8 dB with closed-form solutions.</p>
+<div class="ts"><span>MATLAB</span><span>Python</span><span>Statistical Signal Processing</span></div>
+</div></div>
+
+<div class="pc">
+<img class="pth" src="thumb_amplifier.jpg" alt="Reflection amplifier design and backscatter range measurement">
+<div class="pb">
+<h3>Backscatter Range Extension via Reflection Amplifiers</h3>
+<p>Designed an active backscattering tag using a reflection amplifier with 90° hybrid coupler, achieving |Γ| > 1 and 1.5× signal amplitude gain. Extended reliable OOK detection range to 2.5 m.</p>
+<div class="ts"><span>ADS</span><span>Ansys HFSS</span><span>VNA</span><span>SDR</span></div>
+</div></div>
+
+</div></section>
+
+<!-- NEWS -->
+<section id="news" class="sec">
+<h2 class="st">News</h2>
+<div class="ni"><span class="nd">Apr 2026</span><span class="nt"><span class="badge badge-patent">Patent</span>Filed Korean patent on monostatic backscatter platform with phase-aware channel estimation.</span></div>
+<div class="ni"><span class="nd">Mar 2026</span><span class="nt">Joined <a href="https://scholar.google.com/citations?user=HsUrFQ0AAAAJ">Prof. Kim's group</a> as a Research Assistant at PNU.</span></div>
+<div class="ni"><span class="nd">Feb 2026</span><span class="nt"><span class="badge badge-oral">Oral</span>Presented phase-aware CE framework at <a href="#">KIEES 2026</a>.</span></div>
+<div class="ni"><span class="nd">Jan 2026</span><span class="nt"><span class="badge badge-paper">Paper</span>Preprint released on <a href="https://arxiv.org/abs/2601.02227">arXiv</a>.</span></div>
+<div class="ni"><span class="nd">Jul 2025</span><span class="nt"><span class="badge badge-oral">Oral</span>Presented antenna design at <a href="#">IEEE AP-S/URSI 2025</a>, Montreal.</span></div>
+<div class="ni"><span class="nd">Feb 2025</span><span class="nt"><span class="badge badge-poster">Poster</span>Presented reflection amplifier work at <a href="#">KIEES 2025</a>.</span></div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="sec">
+<h2 class="st">Contact</h2>
+<p>I am always open to discussing research collaborations or potential opportunities. Feel free to reach out.</p>
+<div class="cb"><h3>Email</h3><p><a href="mailto:9lo522@pusan.ac.kr">9lo522@pusan.ac.kr</a></p></div>
+</section>
+
+</main></div>
+
+<footer>&copy; 2026 Hanyeol Ryu.</footer>
+
+<script>
+const ss=document.querySelectorAll('.sec'),nl=document.querySelectorAll('.nl a');
+const ob=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){nl.forEach(l=>l.classList.remove('active'));const a=document.querySelector('.nl a[href="#'+en.target.id+'"]');if(a)a.classList.add('active')}})},{rootMargin:'-20% 0px -70% 0px'});
+ss.forEach(s=>ob.observe(s));
+nl.forEach(l=>{l.addEventListener('click',()=>document.getElementById('nv').classList.remove('open'))});
+</script>
+</body></html>
