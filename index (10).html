@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hanyeol Ryu</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f4f0;--surface:#fff;--text:#1a1a1a;--text2:#3a3a3a;--text3:#777;--accent:#1d5d8a;--accent-h:#124060;--accent-l:#e6f0f7;--border:#ddd9d3;--border-l:#eae7e1;--tag-bg:#ebe6db;--tag-c:#5a5040;--sw:280px;--nh:56px;--serif:'Newsreader',Georgia,serif;--sans:'Outfit',-apple-system,sans-serif;--mw:740px;--ease:.28s cubic-bezier(.4,0,.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nh)+24px)}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+
+nav{position:fixed;top:0;left:0;right:0;height:var(--nh);border-bottom:1px solid var(--border);z-index:100;display:flex;align-items:center;padding:0 40px;backdrop-filter:blur(18px) saturate(1.6);background:rgba(245,244,240,.82)}
+.nn{font-family:var(--serif);font-weight:700;font-size:1.25rem;color:var(--text);text-decoration:none;margin-right:48px;letter-spacing:-.02em;white-space:nowrap}
+.nl{display:flex;gap:4px}.nl a{text-decoration:none;color:var(--text2);font-size:.9rem;font-weight:500;padding:6px 14px;border-radius:8px;transition:all var(--ease)}
+.nl a:hover,.nl a.active{color:var(--accent);background:var(--accent-l)}
+.nh{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--text)}.nh svg{width:22px;height:22px}
+
+.layout{display:flex;max-width:1080px;margin:0 auto;padding-top:calc(var(--nh) + 40px);padding-left:40px;padding-right:40px;gap:56px}
+
+.sidebar{width:var(--sw);flex-shrink:0;position:sticky;top:calc(var(--nh) + 40px);align-self:flex-start}
+.pp{width:200px;height:200px;border-radius:50%;object-fit:cover;border:4px solid var(--border-l);margin-bottom:22px;box-shadow:0 6px 28px rgba(0,0,0,.07)}
+.sidebar h1{font-family:var(--serif);font-size:1.65rem;font-weight:700;letter-spacing:-.02em;margin-bottom:3px}
+.sidebar .role{font-family:var(--sans);font-size:.94rem;color:var(--text2);margin-bottom:18px;line-height:1.5}
+.sl{list-style:none;display:flex;flex-direction:column;gap:11px}
+.sl li{display:flex;align-items:center;gap:9px;font-size:.9rem;color:var(--text2)}
+.sl li svg{width:15px;height:15px;flex-shrink:0;opacity:.45}
+.sl a{color:var(--accent);text-decoration:none;font-weight:500;transition:color var(--ease)}
+.sl a:hover{color:var(--accent-h)}
+.dv{color:var(--text3);margin:0 3px;font-weight:300}
+
+.main{flex:1;min-width:0;max-width:var(--mw);padding-bottom:120px}
+.sec{margin-bottom:64px}
+.st{font-family:var(--serif);font-size:1.9rem;font-weight:700;letter-spacing:-.03em;margin-bottom:22px;position:relative;padding-bottom:14px;color:var(--text)}
+.st::after{content:'';position:absolute;bottom:0;left:0;width:44px;height:3px;background:var(--accent);border-radius:2px}
+.main p{margin-bottom:16px;color:var(--text2);line-height:1.82;font-size:1rem}
+.main p a{color:var(--accent);font-weight:500;text-decoration:none;border-bottom:1px solid transparent;transition:border-color var(--ease)}
+.main p a:hover{border-bottom-color:var(--accent)}
+.hi{color:var(--accent);font-weight:600}
+.bold{font-weight:700;color:var(--text)}
+
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
+.tag{padding:6px 16px;background:var(--tag-bg);color:var(--tag-c);border-radius:20px;font-size:.85rem;font-weight:500}
+
+/* projects */
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.pc{border:1px solid var(--border);border-radius:12px;background:var(--surface);transition:all var(--ease);overflow:hidden}
+.pc:hover{border-color:var(--accent);box-shadow:0 6px 24px rgba(29,93,138,.1);transform:translateY(-2px)}
+.pc img.pth,.pc svg.pth{width:100%;height:200px;object-fit:cover;display:block;border-bottom:1px solid var(--border-l)}
+.pb{padding:20px 22px 22px}
+.pb h3{font-family:var(--serif);font-size:1.05rem;font-weight:600;margin-bottom:8px;line-height:1.4;color:var(--text)}
+.pb p{font-size:.9rem;color:var(--text2);margin-bottom:10px;line-height:1.65}
+.ts{display:flex;flex-wrap:wrap;gap:5px}
+.ts span{font-size:.74rem;padding:3px 9px;background:var(--accent-l);color:var(--accent);border-radius:5px;font-weight:600}
+
+/* projects more toggle */
+.proj-more{display:none;margin-top:0}
+.proj-more.open{display:block}
+.proj-sub{font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--text3);margin:32px 0 6px;letter-spacing:-.01em}
+.show-more-btn{display:flex;align-items:center;justify-content:center;gap:6px;margin:28px auto 0;padding:9px 28px;background:none;border:1.5px solid var(--border);border-radius:8px;font-family:var(--sans);font-size:.88rem;font-weight:500;color:var(--text2);cursor:pointer;transition:all var(--ease)}
+.show-more-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-l)}
+.show-more-btn svg{width:14px;height:14px;transition:transform var(--ease)}
+.show-more-btn.open svg{transform:rotate(180deg)}
+
+/* pubs */
+.py{font-family:var(--serif);font-weight:700;font-size:1.1rem;color:var(--accent);margin-top:28px;margin-bottom:10px}
+.pi{padding:18px 0;border-bottom:1px solid var(--border-l)}.pi:last-child{border-bottom:none}
+.pt{font-family:var(--sans);font-weight:600;font-size:1.02rem;color:var(--text);margin-bottom:5px;line-height:1.52}
+.plabel{font-family:var(--serif);font-weight:700;font-size:.88rem;color:var(--accent);margin-right:6px}
+.pa{font-family:var(--sans);font-size:.92rem;color:var(--text2);margin-bottom:3px}
+.pa strong{color:var(--accent);font-weight:700}
+.pv{font-family:var(--sans);font-size:.88rem;color:var(--text3);font-style:italic}
+.pl{margin-top:8px;display:flex;gap:8px}
+.pl a{font-size:.78rem;font-weight:600;text-decoration:none;color:var(--accent);padding:3px 12px;border:1.5px solid var(--accent);border-radius:6px;transition:all var(--ease);text-transform:uppercase;letter-spacing:.05em}
+.pl a:hover{background:var(--accent);color:#fff}
+
+/* news */
+.ni{display:flex;gap:18px;padding:14px 0;border-bottom:1px solid var(--border-l);align-items:baseline}
+.ni:last-child{border-bottom:none}
+.nd{font-family:var(--sans);font-size:.85rem;font-weight:600;color:var(--accent);white-space:nowrap;min-width:82px}
+.nt{font-family:var(--sans);font-size:.95rem;color:var(--text2);line-height:1.6}
+.nt a{color:var(--accent);text-decoration:none;font-weight:500}
+.nt a:hover{text-decoration:underline}
+.badge{display:inline-block;padding:2px 9px;border-radius:4px;font-size:.74rem;font-weight:600;margin-right:5px;vertical-align:1px}
+.b-oral{background:#e8f5e9;color:#2e7d32}
+.b-poster{background:#fff3e0;color:#e65100}
+.b-paper{background:var(--accent-l);color:var(--accent)}
+.b-patent{background:#f3e5f5;color:#7b1fa2}
+
+.cb{padding:26px 30px;border:1px solid var(--border);border-radius:12px;background:var(--surface);margin-top:14px;display:inline-block}
+.cb h3{font-family:var(--serif);font-weight:600;font-size:1.02rem;margin-bottom:6px}
+.cb a{color:var(--accent);text-decoration:none;font-weight:500;font-size:.98rem}
+.cb a:hover{text-decoration:underline}
+
+/* awards */
+.ai{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--border-l);align-items:flex-start}
+.ai:last-child{border-bottom:none}
+.a-icon{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#fff8e1,#ffe082);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem;box-shadow:0 2px 8px rgba(255,193,7,.18)}
+.a-body{flex:1}
+.a-title{font-family:var(--sans);font-weight:600;font-size:1rem;color:var(--text);line-height:1.5;margin-bottom:2px}
+.a-meta{font-family:var(--sans);font-size:.88rem;color:var(--text3)}
+
+footer{text-align:center;padding:44px 20px;font-size:.85rem;color:var(--text3);border-top:1px solid var(--border-l);margin-top:36px;font-family:var(--sans)}
+
+@media(max-width:860px){
+.nl{display:none;position:absolute;top:var(--nh);left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);flex-direction:column;padding:12px 20px}
+.nl.open{display:flex}.nh{display:block;margin-left:auto}
+.layout{flex-direction:column;padding:calc(var(--nh) + 24px) 20px 0;gap:28px}
+.sidebar{width:100%;position:relative;top:0;display:flex;flex-direction:column;align-items:center;text-align:center}
+.sl{align-items:center}.pg{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<a class="nn" href="#about">Hanyeol Ryu</a>
+<div class="nl" id="nv"><a href="#about" class="active">About</a><a href="#research">Research</a><a href="#projects">Projects</a><a href="#publications">Publications</a><a href="#awards">Awards</a><a href="photos.html">Photos</a><a href="#news">News</a><a href="#contact">Contact</a></div>
+<button class="nh" onclick="document.getElementById('nv').classList.toggle('open')"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+</nav>
+
+<div class="layout">
+<aside class="sidebar">
+<img class="pp" src="profile.jpg" alt="Hanyeol Ryu">
+<h1>Hanyeol Ryu</h1>
+<div class="role">Research Assistant<br>Electronics Engineering</div>
+<ul class="sl">
+<li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0L6.343 16.657a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>Pusan National University, Busan</li>
+<li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><a href="mailto:9lo522@pusan.ac.kr">9lo522@pusan.ac.kr</a></li>
+<li><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.11.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg><a href="https://github.com/hyrecon" target="_blank">GitHub</a></li>
+<li><svg fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><a href="https://www.linkedin.com/in/hanyeol-ryu-ba3821361/" target="_blank">LinkedIn</a></li>
+<li><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 24a7 7 0 110-14 7 7 0 010 14zm0-24L0 9.5l4.838 3.94A8 8 0 0112 9a8 8 0 017.162 4.44L24 9.5z"/></svg><a href="https://scholar.google.com/citations?user=NFQ9YZUAAAAJ&hl=ko&oi=ao" target="_blank">Google Scholar</a><span class="dv">|</span><a href="Curriculum Vitae_HY.pdf" target="_blank">CV</a></li>
+</ul>
+</aside>
+
+<main class="main">
+
+<section id="about" class="sec">
+<h2 class="st">About</h2>
+<p>I am a research assistant in the Department of Electronics Engineering at <a href="https://ee.pusan.ac.kr">Pusan National University</a> <span class="bold">(B.S. '26)</span>, advised by <a href="https://scholar.google.com/citations?user=HsUrFQ0AAAAJ">Prof. Sangkil Kim</a>.</p>
+<p>Outside the lab, you'll find me swimming, lifting, making coffee, or exploring electronics just for the fun of understanding how they work. I'm just as curious about what makes a good life as I am about what the universe is really up to.</p>
+</section>
+
+<section id="research" class="sec">
+<h2 class="st">Research</h2>
+<p>My research lies at the intersection of <span class="hi">wireless communications</span>, <span class="hi">sensing</span>, and <span class="hi">artificial intelligence</span> — with the goal of building next-generation wireless systems that can simultaneously communicate, sense, and learn from their environment.</p>
+<p>I am broadly interested in the following areas:</p>
+<div class="tags"><span class="tag">Backscatter Communications</span><span class="tag">Channel Modeling &amp; Estimation</span><span class="tag">RF/Antenna Design</span><span class="tag">Software-Defined Radio</span><span class="tag">AI/DL for Wireless Communications</span><span class="tag">Wireless Sensing</span><span class="tag">IoT Systems</span></div>
+</section>
+
+<section id="projects" class="sec">
+<h2 class="st">Projects</h2>
+<div class="pg">
+
+<!-- 1. NN-CE -->
+<div class="pc">
+<svg class="pth" viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg" style="background:#fff">
+<rect width="520" height="200" fill="#fff"/>
+<defs>
+  <pattern id="hz" width="6" height="6" patternUnits="userSpaceOnUse"><line x1="0" y1="3" x2="6" y2="3" stroke="#4a8a7a" stroke-width=".4" opacity=".25"/></pattern>
+</defs>
+
+<!-- ===== SOURCE DOMAIN (top-left label) ===== -->
+<text x="88" y="14" fill="#888" font-family="Arial,Helvetica,sans-serif" font-size="7" text-anchor="middle" letter-spacing=".8" font-weight="600">SOURCE DOMAIN</text>
+<!-- ===== TARGET DOMAIN (top-right label) ===== -->
+<text x="340" y="14" fill="#888" font-family="Arial,Helvetica,sans-serif" font-size="7" text-anchor="middle" letter-spacing=".8" font-weight="600">TARGET DOMAIN</text>
+
+<!-- ===== Curved knowledge-transfer bridge ===== -->
+<path d="M 170 28 C 170 4, 280 4, 280 28" fill="none" stroke="#1a3050" stroke-width="1.2" stroke-dasharray="5 3"/>
+<polygon points="278,24 282,30 275,30" fill="#1a3050"/>
+<text x="225" y="10" fill="#1a3050" font-family="Arial,Helvetica,sans-serif" font-size="6.5" text-anchor="middle" font-weight="600" font-style="italic">Knowledge Transfer</text>
+
+<!-- ===== INPUT BLOCK ===== -->
+<rect x="8" y="32" width="32" height="54" rx="3" fill="#f0f4f8" stroke="#3b6d8c" stroke-width="1"/>
+<text x="24" y="55" fill="#2c5570" font-family="Times New Roman,serif" font-size="11" text-anchor="middle" font-style="italic">y</text>
+<text x="24" y="68" fill="#2c5570" font-family="Times New Roman,serif" font-size="7" text-anchor="middle">[n]</text>
+<!-- Arrow -->
+<line x1="42" y1="59" x2="54" y2="59" stroke="#333" stroke-width=".8"/>
+<polygon points="52,56.5 57,59 52,61.5" fill="#333"/>
+
+<!-- ===== PRE-TRAINED DNN (Source) — 5 layer slabs ===== -->
+<!-- Slab 1 -->
+<rect x="60" y="28" width="14" height="80" rx="1.5" fill="#5a8a60" stroke="#3a6a40" stroke-width=".8"/>
+<rect x="60" y="28" width="14" height="80" rx="1.5" fill="url(#hz)"/>
+<!-- 3D top -->
+<polygon points="60,28 65,23 79,23 74,28" fill="#6a9a70" stroke="#3a6a40" stroke-width=".5"/>
+<!-- 3D side -->
+<polygon points="74,28 79,23 79,103 74,108" fill="#4a7a50" stroke="#3a6a40" stroke-width=".3"/>
+
+<!-- Slab 2 -->
+<rect x="82" y="30" width="14" height="76" rx="1.5" fill="#6a9a6a" stroke="#4a7a4a" stroke-width=".8"/>
+<rect x="82" y="30" width="14" height="76" rx="1.5" fill="url(#hz)"/>
+<polygon points="82,30 87,25 101,25 96,30" fill="#7aaa7a" stroke="#4a7a4a" stroke-width=".5"/>
+<polygon points="96,30 101,25 101,101 96,106" fill="#5a8a5a" stroke="#4a7a4a" stroke-width=".3"/>
+
+<!-- Slab 3 -->
+<rect x="104" y="32" width="14" height="72" rx="1.5" fill="#7aaa78" stroke="#5a8a58" stroke-width=".8"/>
+<rect x="104" y="32" width="14" height="72" rx="1.5" fill="url(#hz)"/>
+<polygon points="104,32 109,27 123,27 118,32" fill="#8aba88" stroke="#5a8a58" stroke-width=".5"/>
+<polygon points="118,32 123,27 123,99 118,104" fill="#6a9a68" stroke="#5a8a58" stroke-width=".3"/>
+
+<!-- Slab 4 -->
+<rect x="126" y="35" width="12" height="66" rx="1.5" fill="#8aba88" stroke="#6a9a68" stroke-width=".7"/>
+<polygon points="126,35 130,31 142,31 138,35" fill="#98c896" stroke="#6a9a68" stroke-width=".5"/>
+<polygon points="138,35 142,31 142,97 138,101" fill="#7aaa78" stroke="#6a9a68" stroke-width=".3"/>
+
+<!-- Slab 5 (output layer) -->
+<rect x="146" y="38" width="12" height="60" rx="1.5" fill="#9aca98" stroke="#7aaa78" stroke-width=".7"/>
+<polygon points="146,38 150,34 162,34 158,38" fill="#a8d8a6" stroke="#7aaa78" stroke-width=".5"/>
+<polygon points="158,38 162,34 162,94 158,98" fill="#8aba88" stroke="#7aaa78" stroke-width=".3"/>
+
+<!-- Pre-trained label -->
+<rect x="56" y="115" width="108" height="14" rx="2" fill="#f0f8f0" stroke="#5a8a60" stroke-width=".6"/>
+<text x="110" y="125" fill="#3a6a40" font-family="Arial,Helvetica,sans-serif" font-size="6.5" text-anchor="middle" font-weight="600">Pre-trained DNN</text>
+
+<!-- ===== ARROW: pretrained → transfer ===== -->
+<line x1="172" y1="59" x2="195" y2="59" stroke="#333" stroke-width=".8"/>
+<polygon points="192,56 198,59 192,62" fill="#333"/>
+
+<!-- ===== TRANSFER LEARNING DNN (Target) ===== -->
+<!-- Frozen region background -->
+<rect x="200" y="22" width="118" height="98" rx="3" fill="rgba(93,160,160,.06)" stroke="#5a9e8f" stroke-width=".9" stroke-dasharray="4 2.5"/>
+<!-- Lock icon -->
+<text x="210" y="32" fill="#5a9e8f" font-size="8" opacity=".6">&#x1F512;</text>
+
+<!-- Frozen Slab 1 -->
+<rect x="208" y="28" width="14" height="80" rx="1.5" fill="#6aa0a0" stroke="#4a8080" stroke-width=".8"/>
+<polygon points="208,28 213,23 227,23 222,28" fill="#7ab0b0" stroke="#4a8080" stroke-width=".5"/>
+<polygon points="222,28 227,23 227,103 222,108" fill="#5a9090" stroke="#4a8080" stroke-width=".3"/>
+
+<!-- Frozen Slab 2 -->
+<rect x="230" y="30" width="14" height="76" rx="1.5" fill="#78aaaa" stroke="#588a8a" stroke-width=".8"/>
+<polygon points="230,30 235,25 249,25 244,30" fill="#88baba" stroke="#588a8a" stroke-width=".5"/>
+<polygon points="244,30 249,25 249,101 244,106" fill="#689a9a" stroke="#588a8a" stroke-width=".3"/>
+
+<!-- Frozen Slab 3 -->
+<rect x="252" y="32" width="14" height="72" rx="1.5" fill="#88b4b4" stroke="#689494" stroke-width=".8"/>
+<polygon points="252,32 257,27 271,27 266,32" fill="#98c4c4" stroke="#689494" stroke-width=".5"/>
+<polygon points="266,32 271,27 271,99 266,104" fill="#78a4a4" stroke="#689494" stroke-width=".3"/>
+
+<!-- Frozen Slab 4 -->
+<rect x="274" y="34" width="14" height="68" rx="1.5" fill="#96c0c0" stroke="#76a0a0" stroke-width=".7"/>
+<polygon points="274,34 279,29 293,29 288,34" fill="#a6d0d0" stroke="#76a0a0" stroke-width=".5"/>
+<polygon points="288,34 293,29 293,97 288,102" fill="#86b0b0" stroke="#76a0a0" stroke-width=".3"/>
+
+<!-- Frozen Slab 5 -->
+<rect x="296" y="36" width="12" height="64" rx="1.5" fill="#a2cccc" stroke="#82acac" stroke-width=".7"/>
+<polygon points="296,36 300,32 312,32 308,36" fill="#b2dcdc" stroke="#82acac" stroke-width=".5"/>
+<polygon points="308,36 312,32 312,96 308,100" fill="#92bcbc" stroke="#82acac" stroke-width=".3"/>
+
+<!-- Frozen label -->
+<text x="258" y="130" fill="#3a7a6a" font-family="Arial,Helvetica,sans-serif" font-size="6" text-anchor="middle" font-weight="600">Frozen Layers</text>
+<text x="258" y="140" fill="#3a7a6a" font-family="Times New Roman,serif" font-size="8" text-anchor="middle" font-style="italic">f<tspan font-size="5" baseline-shift="sub">θ</tspan><tspan font-size="4.5" baseline-shift="super">TL</tspan>(·)</text>
+
+<!-- ===== Fine-tuning Slabs (amber/warm) ===== -->
+<!-- FT Slab 1 -->
+<rect x="326" y="34" width="14" height="68" rx="1.5" fill="#e8c870" stroke="#c0a040" stroke-width=".8"/>
+<polygon points="326,34 331,29 345,29 340,34" fill="#f0d880" stroke="#c0a040" stroke-width=".5"/>
+<polygon points="340,34 345,29 345,97 340,102" fill="#d8b860" stroke="#c0a040" stroke-width=".3"/>
+
+<!-- FT Slab 2 -->
+<rect x="348" y="38" width="14" height="60" rx="1.5" fill="#e0c060" stroke="#b89838" stroke-width=".8"/>
+<polygon points="348,38 353,33 367,33 362,38" fill="#f0d070" stroke="#b89838" stroke-width=".5"/>
+<polygon points="362,38 367,33 367,93 362,98" fill="#d0b050" stroke="#b89838" stroke-width=".3"/>
+
+<!-- FT Slab 3 (output) -->
+<rect x="370" y="42" width="12" height="52" rx="1.5" fill="#d8b850" stroke="#b09030" stroke-width=".7"/>
+<polygon points="370,42 374,38 386,38 382,42" fill="#e8c860" stroke="#b09030" stroke-width=".5"/>
+<polygon points="382,42 386,38 386,90 382,94" fill="#c8a840" stroke="#b09030" stroke-width=".3"/>
+
+<!-- Fine-tuning label -->
+<text x="358" y="118" fill="#8a6a10" font-family="Arial,Helvetica,sans-serif" font-size="6" text-anchor="middle" font-weight="600">Fine-tuning</text>
+<text x="358" y="128" fill="#8a6a10" font-family="Times New Roman,serif" font-size="8" text-anchor="middle" font-style="italic">f<tspan font-size="5" baseline-shift="sub">θ</tspan><tspan font-size="4.5" baseline-shift="super">FL</tspan>(·)</text>
+
+<!-- Output arrow -->
+<line x1="390" y1="68" x2="408" y2="68" stroke="#333" stroke-width=".8"/>
+<polygon points="405,65 411,68 405,71" fill="#333"/>
+
+<!-- ===== OUTPUT EQUATION BOX ===== -->
+<rect x="414" y="26" width="100" height="90" rx="3" fill="none" stroke="#333" stroke-width=".8"/>
+
+<text x="464" y="42" fill="#1a3050" font-family="Arial,Helvetica,sans-serif" font-size="7.5" text-anchor="middle" font-weight="700">Well-trained DNN</text>
+
+<!-- f_θ*(y) = [...] -->
+<text x="425" y="58" fill="#333" font-family="Times New Roman,serif" font-size="10" font-style="italic">f</text>
+<text x="432" y="61" fill="#333" font-family="Times New Roman,serif" font-size="6" font-style="italic">θ*</text>
+<text x="442" y="58" fill="#333" font-family="Times New Roman,serif" font-size="10">(</text>
+<text x="447" y="58" fill="#333" font-family="Times New Roman,serif" font-size="10" font-style="italic">y</text>
+<text x="454" y="58" fill="#333" font-family="Times New Roman,serif" font-size="10">) =</text>
+
+<!-- Bracket + equations -->
+<text x="420" y="88" fill="#333" font-family="Times New Roman,serif" font-size="30" font-weight="200">[</text>
+
+<text x="438" y="78" fill="#3a7a6a" font-family="Times New Roman,serif" font-size="9" font-style="italic">f</text>
+<text x="445" y="81" fill="#3a7a6a" font-family="Times New Roman,serif" font-size="5.5" font-style="italic">θ*|H₁</text>
+<text x="470" y="78" fill="#3a7a6a" font-family="Times New Roman,serif" font-size="9">(</text>
+<text x="475" y="78" fill="#3a7a6a" font-family="Times New Roman,serif" font-size="9" font-style="italic">y</text>
+<text x="482" y="78" fill="#3a7a6a" font-family="Times New Roman,serif" font-size="9">)</text>
+
+<text x="438" y="98" fill="#8a6a10" font-family="Times New Roman,serif" font-size="9" font-style="italic">f</text>
+<text x="445" y="101" fill="#8a6a10" font-family="Times New Roman,serif" font-size="5.5" font-style="italic">θ*|H₀</text>
+<text x="470" y="98" fill="#8a6a10" font-family="Times New Roman,serif" font-size="9">(</text>
+<text x="475" y="98" fill="#8a6a10" font-family="Times New Roman,serif" font-size="9" font-style="italic">y</text>
+<text x="482" y="98" fill="#8a6a10" font-family="Times New Roman,serif" font-size="9">)</text>
+
+<text x="490" y="88" fill="#333" font-family="Times New Roman,serif" font-size="30" font-weight="200">]</text>
+
+<!-- ===== BOTTOM: LRT Decision ===== -->
+<line x1="464" y1="118" x2="464" y2="140" stroke="#333" stroke-width=".7"/>
+<polygon points="461,138 464,144 467,138" fill="#333"/>
+
+<rect x="420" y="146" width="90" height="22" rx="3" fill="#f8f4e8" stroke="#b09030" stroke-width=".8"/>
+<text x="465" y="161" fill="#333" font-family="Times New Roman,serif" font-size="9" text-anchor="middle" font-style="italic">L<tspan font-size="5.5" baseline-shift="sub">DNN</tspan>(ỹ) <tspan font-style="normal">≷ 1</tspan></text>
+
+<!-- ===== BOTTOM LABELS ===== -->
+<text x="258" y="186" fill="#555" font-family="Arial,Helvetica,sans-serif" font-size="6.5" text-anchor="middle" letter-spacing=".6">DEEP TRANSFER LEARNING FOR CHANNEL ESTIMATION &amp; SIGNAL DETECTION</text>
+
+<!-- Thin divider dots between source and target -->
+<line x1="190" y1="20" x2="190" y2="148" stroke="#ccc" stroke-width=".5" stroke-dasharray="2 3"/>
+</svg>
+<div class="pb">
+<h3>Neural Network-Based Channel Estimation</h3>
+<p>Exploring <span class="bold">deep learning approaches</span> for channel estimation and signal recovery in backscatter and low-SNR wireless systems, where model-based methods face fundamental performance floors.</p>
+<div class="ts"><span>PyTorch</span><span>Python</span><span>MATLAB</span></div>
+<div class="pl"><a href="https://github.com/hyrecon/nn-channel-estimation" target="_blank">Code</a></div>
+</div></div>
+
+<!-- 2. Phase-Aware CE -->
+<div class="pc">
+<img class="pth" src="thumb_estimation.jpg" alt="Phase-aware channel estimation NMSE ablation">
+<div class="pb">
+<h3>Phase-Aware Channel Estimation for Backscatter Links</h3>
+<p>Proposed <span class="bold">lifted LS/LMMSE estimators</span> that jointly resolve composite channel gain and residual phase drift in monostatic backscatter links, using pilot-based observation matrices and closed-form phase correction.</p>
+<div class="ts"><span>MATLAB</span><span>Python</span><span>Signal Processing</span></div>
+<div class="pl"><a href="phase_aware_demo.mp4" download>Demo Video</a></div>
+</div></div>
+
+<!-- 3. Ultra-Low-Power Monostatic -->
+<div class="pc">
+<img class="pth" src="thumb_platform.jpg" alt="Over-the-air full-color image reconstruction">
+<div class="pb">
+<h3>Ultra-Low-Power Monostatic Backscatter Platform for Multimedia Communication</h3>
+<p>Built an <span class="bold">end-to-end monostatic backscatter link</span> consisting of a semi-passive tag, USRP N200 SDR reader, and a full GNU Radio signal processing chain for over-the-air multimedia (image) transmission.</p>
+<div class="ts"><span>GNU Radio</span><span>USRP N200</span><span>PCB Design</span><span>FPGA</span></div>
+<div class="pl"><a href="https://github.com/hyrecon/monostatic-backscatter" target="_blank">Code</a></div>
+</div></div>
+
+<!-- 4. Reflection Amplifier -->
+<div class="pc">
+<img class="pth" src="thumb_amplifier.jpg" alt="Reflection amplifier design and range measurement">
+<div class="pb">
+<h3>Backscatter Range Extension via Reflection Amplifiers</h3>
+<p>Designed an <span class="bold">active backscatter tag</span> using a reflection amplifier with a 90° hybrid coupler and BJT gain stage, enabling range extension beyond conventional passive tag limits.</p>
+<div class="ts"><span>ADS</span><span>Ansys HFSS</span><span>VNA</span><span>SDR</span></div>
+</div></div>
+
+</div>
+
+<button class="show-more-btn" id="projToggle" onclick="toggleProjects()">
+<span>Past Projects</span>
+<svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+</button>
+
+<div class="proj-more" id="projMore">
+<h3 class="proj-sub">Past Projects</h3>
+<div class="pg">
+
+<!-- Past 1: Smart Auto Shopping Cart (Hi-Makerthon) -->
+<div class="pc">
+<img class="pth" src="thumb_makerthon.jpg" alt="Smart Auto Shopping Cart prototype">
+<div class="pb">
+<h3>Smart Auto Shopping Cart (Barrier-Free)</h3>
+<p>Built a <span class="bold">barrier-free autonomous shopping cart</span> for wheelchair users, integrating Arduino, RFID-based payment, AI voice recognition for navigation control, line tracer module, ultrasonic sensor for collision avoidance, speaker for voice guidance, and 3D-printed braille labels.</p>
+<div class="ts"><span>Arduino</span><span>RFID</span><span>3D Printing</span><span>Laser Cutting</span><span>AI Voice</span></div>
+<div class="pl"><a href="makerthon_demo.mp4" download>Demo Video</a><a href="https://github.com/hyrecon/smart-shopping-cart" target="_blank">Code</a></div>
+</div></div>
+
+<!-- Past 2: 3D Printer & Arduino Volunteering (Thailand) -->
+<div class="pc">
+<img class="pth" src="thumb_volunteering.jpg" alt="Overseas volunteering in Thailand — 3D Printer and Arduino workshop">
+<div class="pb">
+<h3>3D Printing &amp; Arduino Education Program</h3>
+<p>Taught <span class="bold">3D printing and Arduino programming</span> workshops as part of PNU's overseas volunteering program in Chonburi, Thailand, introducing local students to hands-on electronics and rapid prototyping.</p>
+<div class="ts"><span>3D Printing</span><span>Arduino</span><span>Education</span><span>Volunteering</span></div>
+<div class="pl"><a href="volunteering_textbook.pdf" target="_blank">Textbook</a><a href="https://github.com/hyrecon/arduino-education-thailand" target="_blank">Code</a></div>
+</div></div>
+
+</div>
+</div>
+
+</section>
+
+<section id="publications" class="sec">
+<h2 class="st">Publications</h2>
+<div class="py">2026</div>
+<div class="pi">
+<div class="pt"><span class="plabel">[J2]</span>Ultra-low-power Monostatic Backscatter Platform with Phase-Aware Channel Estimation and System-Level Validation</div>
+<div class="pa"><strong>H. Ryu</strong> and S. Kim</div>
+<div class="pv">arXiv:2601.02227v1 [eess.SP], Jan. 2026</div>
+<div class="pl"><a href="https://arxiv.org/abs/2601.02227" target="_blank">arXiv</a></div>
+</div>
+<div class="py">2025</div>
+<div class="pi">
+<div class="pt"><span class="plabel">[J1]</span>Improved Backscattering Communication Range Using Reflection Amplifiers</div>
+<div class="pa">J. Choi, <strong>H. Ryu</strong>, and S. Kim</div>
+<div class="pv">J. Korean Inst. Electromagn. Eng. Sci, vol. 36, no. 2, pp. 266–273, Feb. 2025</div>
+<div class="pl"><a href="#">PDF</a></div>
+</div>
+<div class="pi">
+<div class="pt"><span class="plabel">[C1]</span>High-Isolation Yagi-Uda Antenna Array using Split-Ring Resonators for Practical Backscatter System</div>
+<div class="pa"><strong>H. Ryu</strong> and S. Kim</div>
+<div class="pv">Proc. IEEE AP-S/URSI, 2025, pp. 2877–2879</div>
+<div class="pl"><a href="#">PDF</a></div>
+</div>
+</section>
+
+<section id="awards" class="sec">
+<h2 class="st">Awards</h2>
+<div class="ai">
+<div class="a-icon">🥈</div>
+<div class="a-body">
+<div class="a-title">2nd Place, Capstone Design Project</div>
+<div class="a-meta">Pusan National University, Nov 2025</div>
+</div>
+</div>
+<div class="ai">
+<div class="a-icon">🥈</div>
+<div class="a-body">
+<div class="a-title">2nd Place, Innovation &amp; Prototyping Competition</div>
+<div class="a-meta">Theme: Improving Accessibility for People with Disabilities and the Elderly, Pusan National University, Aug 2023</div>
+</div>
+</div>
+</section>
+
+<section id="news" class="sec">
+<h2 class="st">News</h2>
+<div class="ni"><span class="nd">Apr 2026</span><span class="nt"><span class="badge b-patent">Patent</span>Filed Korean patent on monostatic backscatter platform with phase-aware channel estimation.</span></div>
+<div class="ni"><span class="nd">Mar 2026</span><span class="nt">Joined <a href="https://scholar.google.com/citations?user=HsUrFQ0AAAAJ">Prof. Kim's group</a> as a Research Assistant at PNU.</span></div>
+<div class="ni"><span class="nd">Feb 2026</span><span class="nt"><span class="badge b-oral">Oral</span>Presented "Ultra-low-power Backscatter Platform with Phase-Aware Channel Estimation" at <a href="#">KIEES 2026</a>.</span></div>
+<div class="ni"><span class="nd">Jan 2026</span><span class="nt"><span class="badge b-paper">Paper</span>Preprint released on <a href="https://arxiv.org/abs/2601.02227">arXiv</a>.</span></div>
+<div class="ni"><span class="nd">Jul 2025</span><span class="nt"><span class="badge b-oral">Oral</span>Presented "High-Isolation Yagi-Uda Antenna Array using Split-Ring Resonators for Practical Backscatter System" at <a href="#">IEEE AP-S/URSI 2025</a>, Montreal.</span></div>
+<div class="ni"><span class="nd">Feb 2025</span><span class="nt"><span class="badge b-poster">Poster</span>Presented "Improved Backscattering Communication Range Using Reflection Amplifiers" at <a href="#">KIEES 2025</a>.</span></div>
+</section>
+
+<section id="contact" class="sec">
+<h2 class="st">Contact</h2>
+<p>I am always open to discussing research collaborations or potential opportunities. Feel free to reach out.</p>
+<div class="cb"><h3>Email</h3><p><a href="mailto:9lo522@pusan.ac.kr">9lo522@pusan.ac.kr</a></p></div>
+</section>
+
+</main></div>
+
+<footer>&copy; 2026 Hanyeol Ryu.</footer>
+
+<script>
+const ss=document.querySelectorAll('.sec'),nl=document.querySelectorAll('.nl a');
+const ob=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting){nl.forEach(l=>l.classList.remove('active'));const a=document.querySelector('.nl a[href="#'+en.target.id+'"]');if(a)a.classList.add('active')}})},{rootMargin:'-20% 0px -70% 0px'});
+ss.forEach(s=>ob.observe(s));
+nl.forEach(l=>{l.addEve
