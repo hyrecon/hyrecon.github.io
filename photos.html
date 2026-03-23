@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photos — Hanyeol Ryu</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f4f0;--surface:#fff;--text:#1a1a1a;--text2:#3a3a3a;--text3:#777;--accent:#1d5d8a;--accent-h:#124060;--accent-l:#e6f0f7;--border:#ddd9d3;--border-l:#eae7e1;--nh:56px;--serif:'Newsreader',Georgia,serif;--sans:'Outfit',-apple-system,sans-serif;--ease:.28s cubic-bezier(.4,0,.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+
+nav{position:fixed;top:0;left:0;right:0;height:var(--nh);border-bottom:1px solid var(--border);z-index:100;display:flex;align-items:center;padding:0 40px;backdrop-filter:blur(18px) saturate(1.6);background:rgba(245,244,240,.82)}
+.nn{font-family:var(--serif);font-weight:700;font-size:1.25rem;color:var(--text);text-decoration:none;margin-right:48px;letter-spacing:-.02em;white-space:nowrap}
+.nl{display:flex;gap:4px}.nl a{text-decoration:none;color:var(--text2);font-size:.9rem;font-weight:500;padding:6px 14px;border-radius:8px;transition:all var(--ease)}
+.nl a:hover,.nl a.active{color:var(--accent);background:var(--accent-l)}
+.nh{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--text)}.nh svg{width:22px;height:22px}
+
+.wrap{max-width:960px;margin:0 auto;padding:calc(var(--nh) + 40px) 40px 80px}
+.page-title{font-family:var(--serif);font-size:2.2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:8px;color:var(--text)}
+.page-desc{color:var(--text2);font-size:1rem;margin-bottom:40px;line-height:1.7}
+
+.gal-section{margin-bottom:48px}
+.gal-sub{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--text);margin-bottom:6px}
+.gal-meta{font-size:.88rem;color:var(--text3);margin-bottom:14px}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gal img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;border:1px solid var(--border-l);transition:all var(--ease);cursor:pointer}
+.gal img:hover{transform:scale(1.02);box-shadow:0 6px 20px rgba(0,0,0,.1);border-color:var(--accent)}
+
+/* lightbox */
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;align-items:center;justify-content:center;cursor:pointer}
+.lb.open{display:flex}
+.lb img{max-width:90vw;max-height:85vh;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.4)}
+.lb-close{position:fixed;top:20px;right:28px;color:#fff;font-size:2rem;cursor:pointer;font-family:var(--sans);font-weight:300;opacity:.7;transition:opacity var(--ease)}
+.lb-close:hover{opacity:1}
+
+.back-link{display:inline-flex;align-items:center;gap:6px;color:var(--accent);text-decoration:none;font-size:.92rem;font-weight:500;margin-bottom:28px;transition:color var(--ease)}
+.back-link:hover{color:var(--accent-h)}
+.back-link svg{width:16px;height:16px}
+
+footer{text-align:center;padding:44px 20px;font-size:.85rem;color:var(--text3);border-top:1px solid var(--border-l);margin-top:36px;font-family:var(--sans)}
+
+@media(max-width:860px){
+.nl{display:none;position:absolute;top:var(--nh);left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);flex-direction:column;padding:12px 20px}
+.nl.open{display:flex}.nh{display:block;margin-left:auto}
+.wrap{padding:calc(var(--nh) + 24px) 20px 60px}
+.gal{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){.gal{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+<a class="nn" href="index.html">Hanyeol Ryu</a>
+<div class="nl" id="nv"><a href="index.html#about">About</a><a href="index.html#research">Research</a><a href="index.html#projects">Projects</a><a href="index.html#publications">Publications</a><a href="index.html#awards">Awards</a><a href="photos.html" class="active">Photos</a><a href="index.html#news">News</a><a href="index.html#contact">Contact</a></div>
+<button class="nh" onclick="document.getElementById('nv').classList.toggle('open')"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+</nav>
+
+<div class="wrap">
+
+<a class="back-link" href="index.html"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5m0 0l7 7m-7-7l7-7"/></svg>Back to Home</a>
+
+<h1 class="page-title">Photos</h1>
+<p class="page-desc">A collection of photos from past projects, competitions, and volunteering activities.</p>
+
+<!-- Hi-Makerthon -->
+<div class="gal-section">
+<h2 class="gal-sub">Hi-Makerthon — Smart Auto Shopping Cart</h2>
+<p class="gal-meta">Pusan National University, Aug 2023 · 2nd Place, Innovation &amp; Prototyping Competition</p>
+<div class="gal">
+<img src="photos/makerthon_1.jpg" alt="Shopping cart prototype — full assembly" onclick="openLb(this)">
+<img src="photos/makerthon_2.jpg" alt="Arduino wiring on breadboard" onclick="openLb(this)">
+<img src="photos/makerthon_3.jpg" alt="3D printed cart body and cover" onclick="openLb(this)">
+<img src="photos/makerthon_4.jpg" alt="Laser-cut acrylic frame parts" onclick="openLb(this)">
+<img src="photos/makerthon_5.jpg" alt="Soldering and jumper wire assembly" onclick="openLb(this)">
+<img src="photos/makerthon_6.jpg" alt="Final demo and team presentation" onclick="openLb(this)">
+</div>
+</div>
+
+<!-- Overseas Volunteering -->
+<div class="gal-section">
+<h2 class="gal-sub">Overseas Volunteering — Thailand</h2>
+<p class="gal-meta">Chonburi, Thailand · Dec 2022 – Feb 2023 · 3D Printer &amp; Arduino Workshop</p>
+<div class="gal">
+<img src="photos/volunteer_1.jpg" alt="3D printer workshop setup" onclick="openLb(this)">
+<img src="photos/volunteer_2.jpg" alt="Teaching Arduino to Thai students" onclick="openLb(this)">
+<img src="photos/volunteer_3.jpg" alt="Students assembling circuits" onclick="openLb(this)">
+<img src="photos/volunteer_4.jpg" alt="3D printing demonstration" onclick="openLb(this)">
+<img src="photos/volunteer_5.jpg" alt="Group photo with all participants" onclick="openLb(this)">
+<img src="photos/volunteer_6.jpg" alt="Final project showcase" onclick="openLb(this)">
+</div>
+</div>
+
+</div>
+
+<!-- Lightbox -->
+<div class="lb" id="lb" onclick="closeLb()">
+<span class="lb-close">&times;</span>
+<img id="lbImg" src="" alt="">
+</div>
+
+<footer>&copy; 2026 Hanyeol Ryu.</footer>
+
+<script>
+function openLb(el){const lb=document.getElementById('lb'),img=document.getElementById('lbImg');img.src=el.src;img.alt=el.alt;lb.classList.add('open');document.body.style.overflow='hidden'}
+function closeLb(){document.getElementById('lb').classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb()});
+</script>
+</body>
+</html>
