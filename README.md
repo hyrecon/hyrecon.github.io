@@ -1,3 +1,3 @@
-Personal website of Hanyeol Ryu
+My personal website!
 
 🔗 https://hyrecon.github.io
