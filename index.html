@@ -142,7 +142,8 @@ footer{text-align:center;padding:44px 20px;font-size:.85rem;color:var(--text3);b
 <img class="pth" src="dtl_neuron_framework.svg" alt="DTL-based CE">
 <div class="pb">
 <h3>Neural Network-Based Channel Estimation for Wireless Systems</h3>
-<p>Conventional model-based estimators for backscatter channels rely on <span class="bold">first-order phase approximations</span> that degrade rapidly when residual carrier frequency offset grows beyond a narrow admissible range — resulting in <span class="bold">irreducible error floors</span> regardless of SNR. This project explores <span class="hi">DNN-based transfer learning</span> approaches to overcome these fundamental limitations and enable robust channel estimation across a wide operating regime.</p>
+<p>The proposed phase-aware channel estimator jointly models the equivalent channel and residual phase slope via a lifted two-parameter framework, achieving near-CRLB performance under quasi-static conditions. However, this estimator relies on the <span class="bold">first-order linearization</span>, which constrains the residual phase drift to a narrow admissible range. When this assumption is violated, the estimator exhibits <span class="bold">irreducible error floors</span> regardless of SNR — a structural limitation that no model-based refinement can resolve. 
+  This project explores <span class="hi">DNN-based transfer learning</span> approaches to overcome this fundamental limitation, enabling robust signal detection and demodulation beyond the admissible operating regime of the model-based estimator.</p>
 <div class="ts"><span>PyTorch</span><span>Python</span><span>MATLAB</span></div>
 <!-- <div class="pl"><a href="javascript:void(0)">Code (Coming Soon)</a></div> -->
 <div class="pl"></div>
@@ -152,7 +153,7 @@ footer{text-align:center;padding:44px 20px;font-size:.85rem;color:var(--text3);b
 <img class="pth" src="figure-bmc.svg" alt="Phase-aware channel estimators">
 <div class="pb">
 <h3>Phase-Aware Channel Estimation for Backscatter Links</h3>
-<p>Proposed <span class="hi">lifted LS/LMMSE estimators</span> that jointly resolve <span class="bold">composite channel gain</span> and <span class="bold">residual phase drift</span> in monostatic backscatter links, using <span class="hi">pilot-based observation matrices</span> and <span class="hi">closed-form phase correction</span>.</p>
+<p>Proposed the <span class="hi">lifted LS/LMMSE estimators</span> that model <span class="bold">residual phase drift</span> — arising from oscillator mismatch and imperfect carrier frequency offset correction in the reader hardware — as a nuisance parameter to achieve accurate composite channel estimation in monostatic backscatter links, with <span class="bold">closed-form solutions</span> derived from a linearized two-parameter pilot observation model.</p>
 <div class="ts"><span>MATLAB</span><span>Python</span><span>DSP</span></div>
 <div class="pl"><a href="https://www.youtube.com/watch?v=pwyy--7GOnE" target="_blank">Demo Video</a>
 </div></div></div>
@@ -161,7 +162,7 @@ footer{text-align:center;padding:44px 20px;font-size:.85rem;color:var(--text3);b
 <img class="pth" src="figure-setup.svg" alt="BMC systems">
 <div class="pb">
 <h3>Ultra-Low-Power Monostatic Practical Backscatter Systems for Multimedia Communication</h3>
-<p>Built an <span class="hi">end-to-end monostatic backscatter link</span> consisting of a <span class="bold">semi-passive tag</span>, <span class="bold">USRP N200 SDR</span> reader, and a <span class="hi">signal processing</span> for over-the-air multimedia (full-color image) transmission.</p>
+<p>Built an <span class="hi">end-to-end monostatic backscatter link with a </span> SDR reader</span> and custom-designed <span class="bold">semi-passive backscatter tag</span>, <span class="bold">2&#xd7;1 High-gain &amp; High-isolation Yagi-Uda antenna array</span>, and <span class="hi">signal processing chain</span> for over-the-air multimedia (full-color image) transmission.</p>
 <div class="ts"><span>MATLAB</span><span>Python</span><span>Ansys HFSS</span><span>PCB Design</span><span>SDR</span><span>FPGA</span></div>
 <div class="pl"><a href="https://github.com/hyrecon/BMC_System/blob/main/backscatter_demodulation.m" target="_blank">Code</a></div>
 </div></div>
@@ -251,7 +252,7 @@ footer{text-align:center;padding:44px 20px;font-size:.85rem;color:var(--text3);b
 <section id="news" class="sec">
 <h2 class="st">News</h2>
 <div class="ni"><span class="nd">Apr 2026</span><span class="nt"><span class="badge b-patent">Patent</span>Filed Korean patent: <em><strong>&#x201c;Ultra-low-power Monostatic Backscatter Platform with Phase-Aware Channel Estimation.&#x201d;</strong></em></span></div>
-<div class="ni"><span class="nd">Mar 2026</span><span class="nt">Joined <a href="javascript:void(0)">Prof. Sangkil Kim&#x2019;s group</a> as a Research Assistant at <a href="javascript:void(0)">Pusan National University</a>.</span></div>
+<div class="ni"><span class="nd">Mar 2026</span><span class="nt">Joined <a href="javascript:void(0)">Prof. Sangkil Kim&#x2019;s group</a> as a Research Assistant at <a href="javascript:void(0)">PNU</a>.</span></div>
 <div class="ni"><span class="nd">Feb 2026</span><span class="nt"><span class="badge b-oral">Oral</span>Presented <em><strong>&#x201c;Ultra-low-power Backscatter Platform with Phase-Aware Channel Estimation&#x201d;</strong></em> at <a href="javascript:void(0)">Korean Institute of Electromagnetic Engineering and Science (KIEES)</a>, South Korea.</span></div>
 <div class="ni"><span class="nd">Jan 2026</span><span class="nt"><span class="badge b-paper">Paper</span>Preprint <em><strong>&#x201c;Ultra-low-power Monostatic Backscatter Platform with Phase-Aware Channel Estimation and System-Level Validation&#x201d;</strong></em> released on <a href="https://arxiv.org/abs/2601.02227">arXiv</a>.</span></div>
 <div class="ni"><span class="nd">Jul 2025</span><span class="nt"><span class="badge b-oral">Oral</span>Presented <em><strong>&#x201c;High-Isolation Yagi-Uda Antenna Array using Split-Ring Resonators for Practical Backscatter System&#x201d;</strong></em> at <a href="javascript:void(0)">IEEE International Symposium on Antennas and Propagation and USNC-URSI Radio Science Meeting (AP-S/URSI)</a>, Ottawa, ON, Canada.</span></div>
