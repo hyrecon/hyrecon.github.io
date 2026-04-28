@@ -10,8 +10,8 @@
 :root{--bg:#f5f4f0;--surface:#fff;--text:#1a1a1a;--text2:#3a3a3a;--text3:#777;--accent:#1d5d8a;--accent-h:#124060;--accent-l:#e6f0f7;--border:#ddd9d3;--border-l:#eae7e1;--tag-bg:#ebe6db;--tag-c:#5a5040;--sw:280px;--nh:56px;--serif:'Newsreader',Georgia,serif;--sans:'Outfit',-apple-system,sans-serif;--mw:740px;--ease:.28s cubic-bezier(.4,0,.2,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nh)+24px)}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
-nav{position:fixed;top:0;left:0;right:0;height:var(--nh);border-bottom:1px solid var(--border);z-index:100;display:flex;align-items:center;padding:0 40px;backdrop-filter:blur(18px) saturate(1.6);background:rgba(245,244,240,.82)}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.75;font-size:17px;-webkit-fo-smoothing:antialiased}
+nav{position:fixed;top:0;left:0;right:0;height:var(--nh);border-bottom:1px solid var(--border);z-index:100;disntplay:flex;align-items:center;padding:0 40px;backdrop-filter:blur(18px) saturate(1.6);background:rgba(245,244,240,.82)}
 .nn{font-family:var(--serif);font-weight:700;font-size:1.25rem;color:var(--text);text-decoration:none;margin-right:48px;letter-spacing:-.02em;white-space:nowrap}
 .nl{display:flex;gap:4px}.nl a{text-decoration:none;color:var(--text2);font-size:.9rem;font-weight:500;padding:6px 14px;border-radius:8px;transition:all var(--ease)}
 .nl a:hover,.nl a.active{color:var(--accent);background:var(--accent-l)}
@@ -56,6 +56,14 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nh);border-bottom:1px solid
 .show-more-btn svg{width:14px;height:14px;transition:transform var(--ease)}
 .show-more-btn.open svg{transform:rotate(180deg)}
 .py{font-family:var(--serif);font-weight:700;font-size:1.1rem;color:var(--accent);margin-top:28px;margin-bottom:10px}
+.psub{font-family:var(--serif);font-weight:700;font-size:1.25rem;color:var(--text);margin-top:36px;margin-bottom:6px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+.psub::before{content:'';width:4px;height:20px;background:var(--accent);border-radius:2px}
+.psub-count{font-family:var(--sans);font-size:.8rem;font-weight:500;color:var(--text3);background:var(--border-l);padding:2px 10px;border-radius:10px;letter-spacing:0}
+.pi{padding:18px 0;border-bottom:1px solid var(--border-l)}.pi:last-child{border-bottom:none}
+.psub{font-family:var(--serif);font-weight:700;font-size:1.25rem;color:var(--text);margin-top:36px;margin-bottom:6px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+.psub::before{content:'';width:4px;height:20px;background:var(--accent);border-radius:2px}
+.psub-count{font-family:var(--sans);font-size:.8rem;font-weight:500;color:var(--text3);background:var(--border-l);padding:2px 10px;border-radius:10px;letter-spacing:0}
+.pi{padding:18px 0;border-bottom:1px solid var(--border-l)}.pi:last-child{border-bottom:none}
 .pi{padding:18px 0;border-bottom:1px solid var(--border-l)}.pi:last-child{border-bottom:none}
 .pt{font-family:var(--sans);font-weight:600;font-size:1.02rem;color:var(--text);margin-bottom:5px;line-height:1.52}
 .plabel{font-family:var(--serif);font-weight:700;font-size:.88rem;color:var(--accent);margin-right:6px}
@@ -208,6 +216,9 @@ footer{text-align:center;padding:44px 20px;font-size:.85rem;color:var(--text3);b
 <section id="publications" class="sec">
 <h2 class="st">Publications</h2>
 <p style="font-size:.85rem;color:var(--text3);margin-top:-14px">(<sup style="font-size:1em">†</sup>: First author, <sup style="font-size:1em">*</sup>: Corresponding author)</p>
+
+<h3 class="psub">Journal Articles <span class="psub-count">3</span></h3>
+
 <div class="py">2026</div>
 <div class="pi">
 <div class="pt"><span class="plabel">[J3]</span>Integrated Sensing and Backscatter Communication (ISABC): Toward Self-Sustainable Autonomous IoT Networks</div>
@@ -222,6 +233,7 @@ footer{text-align:center;padding:44px 20px;font-size:.85rem;color:var(--text3);b
 <div class="pv">IEEE Internet of Things Journal, Under Revision</div>
 <div class="pl"><a href="Ultra-low-power_Monostatic_Backscatter_Platform_with_Phase-Aware_Channel_Estimation_and_System-Level_Validation.pdf" target="_blank">PDF</a></div>
 </div>
+
 <div class="py">2025</div>
 <div class="pi">
 <div class="pt"><span class="plabel">[J1]</span>Improved Backscattering Communication Range Using Reflection Amplifiers</div>
@@ -229,6 +241,10 @@ footer{text-align:center;padding:44px 20px;font-size:.85rem;color:var(--text3);b
 <div class="pv">The Journal of Korean Institute of Electromagnetic Engineering and Science, 2025</div>
 <div class="pl"><a href="javascript:void(0)">PDF</a></div>
 </div>
+
+<h3 class="psub">Conference Papers <span class="psub-count">1</span></h3>
+
+<div class="py">2025</div>
 <div class="pi">
 <div class="pt"><span class="plabel">[C1]</span>High-Isolation Yagi-Uda Antenna Array using Split-Ring Resonators for Practical Backscatter System</div>
 <div class="pa"><strong>H. Ryu</strong><sup style="font-size:.9em">†</sup> and S. Kim<sup style="font-size:.9em">*</sup></div>
