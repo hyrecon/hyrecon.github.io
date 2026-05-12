@@ -155,7 +155,7 @@ footer{text-align:center;padding:44px 20px;font-size:.85rem;color:var(--text3);b
 <img class="pth" src="dtl_framework_2.png" alt="DTL-based CE">
 <div class="pb">
 <h3>Transformer-Hypernetwork Channel Estimation for Backscatter IoT</h3>
-<p>This project develops a phase-aware deep-neural channel estimator for monostatic backscatter communication. The lifted estimators what I developed suffer from residual phase drift and <span class="bold">higher-order phase curvature</span>, which create deterministic error floors even at high SNR. To overcome this limitation, I design a <span class="bold">Transformer-Hypernetwork estimator</span> that preserves the lifted phase-aware initialization while learning frame-adaptive Gauss-Newton update controls. The model uses measured pilot statistics to guide transfer learning and improves channel estimation robustness for reliable low-power IoT signal recovery.</p>
+<p>This project develops a phase-aware deep neural channel estimator for monostatic backscatter communication. Conventional lifted estimators mitigate first-order residual phase drift, but still suffer from <span class="bold">higher-order phase curvature</span>, which creates deterministic error floors even at high SNR. To overcome this limitation, a <span class="hi">Transformer-Hypernetwork estimator</span> preserves the lifted phase-aware initialization while learning frame-adaptive Gauss-Newton update controls. The model uses measured pilot statistics to guide transfer learning and improves channel estimation robustness for reliable low-power indoor IoT.</p>
 <div class="ts"><span>PyTorch</span><span>Python</span><span>MATLAB</span></div>
 <!-- <div class="pl"><a href="javascript:void(0)">Code (Coming Soon)</a></div> -->
 <div class="pl"></div>
