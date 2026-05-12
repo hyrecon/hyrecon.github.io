@@ -154,8 +154,8 @@ footer{text-align:center;padding:44px 20px;font-size:.85rem;color:var(--text3);b
 <div class="pc">
 <img class="pth" src="dtl_framework.png" alt="DTL-based CE">
 <div class="pb">
-<h3>Neural Network-Based Channel Estimation for Wireless Systems</h3>
-<p>The proposed phase-aware channel estimators achieve near-CRLB performance under quasi-static conditions, but their <span class="bold">first-order linearization</span> constrains the residual phase drift to a narrow admissible range — beyond which <span class="bold">irreducible error floors</span> emerge regardless of SNR. This project explores <span class="hi">DNN-based transfer learning</span> approaches to overcome this structural limitation, enabling robust signal detection and demodulation beyond the admissible operating regime of the model-based estimators.</p>
+<h3>Transformer-Hypernetwork Channel Estimation for Backscatter IoT</h3>
+<p>This project develops a phase-aware deep-neural channel estimator for monostatic backscatter communication. The lifted estimators what I developed suffer from residual phase drift and <span class="bold">higher-order phase curvature</span>, which create deterministic error floors even at high SNR. To overcome this limitation, I design a <span class="bold">Transformer-Hypernetwork estimator</span> that preserves the lifted phase-aware initialization while learning frame-adaptive Gauss-Newton update controls. The model uses measured pilot statistics to guide transfer learning and improves channel estimation robustness for reliable low-power IoT signal recovery.</p>
 <div class="ts"><span>PyTorch</span><span>Python</span><span>MATLAB</span></div>
 <!-- <div class="pl"><a href="javascript:void(0)">Code (Coming Soon)</a></div> -->
 <div class="pl"></div>
