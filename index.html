@@ -39,15 +39,20 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nh);border-bottom:1px solid
 .bold{font-weight:700;color:var(--text)}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
 .tag{padding:6px 16px;background:var(--tag-bg);color:var(--tag-c);border-radius:20px;font-size:.85rem;font-weight:500}
-.pg{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
-.pc{border:1px solid var(--border);border-radius:12px;background:var(--surface);transition:all var(--ease);overflow:hidden}
-.pc:hover{border-color:var(--accent);box-shadow:0 6px 24px rgba(29,93,138,.1);transform:translateY(-2px)}
-.pc img.pth,.pc svg.pth{width:100%; height:auto; max-height:320px; object-fit:contain; object-position:center; display:block; background:#fff; padding:12px; border-bottom:1px solid var(--border-l);}
-.pb{padding:20px 22px 22px}
-.pb h3{font-family:var(--serif);font-size:1.05rem;font-weight:600;margin-bottom:8px;line-height:1.4;color:var(--text)}
-.pb p{font-size:.9rem;color:var(--text2);margin-bottom:10px;line-height:1.65}
 .ts{display:flex;flex-wrap:wrap;gap:5px}
 .ts span{font-size:.74rem;padding:3px 9px;background:var(--accent-l);color:var(--accent);border-radius:5px;font-weight:600}
+.proj-list{display:flex;flex-direction:column;margin-top:18px}
+.proj-item{display:grid;grid-template-columns:245px minmax(0,1fr);gap:26px;padding:24px 0;border-bottom:1px solid var(--border-l);align-items:start}
+.proj-item:first-child{padding-top:0}
+.proj-item:last-child{border-bottom:none}
+.proj-thumb{border:1px solid var(--border);border-radius:12px;background:var(--surface);overflow:hidden;transition:all var(--ease)}
+.proj-item:hover .proj-thumb{border-color:var(--accent);box-shadow:0 6px 24px rgba(29,93,138,.1);transform:translateY(-2px)}
+.proj-thumb img,.proj-thumb svg{width:100%;height:170px;object-fit:contain;object-position:center;display:block;background:#fff;padding:12px}
+.proj-body{min-width:0}
+.proj-title{font-family:var(--sans);font-weight:600;font-size:1.08rem;line-height:1.45;color:var(--text);margin-bottom:8px;letter-spacing:-.01em}
+.proj-desc{font-size:.92rem;color:var(--text2);line-height:1.68;margin-bottom:10px}
+.proj-item .ts{margin-top:10px}
+.proj-item .pl{margin-top:10px}
 .more-wrap{display:none;margin-top:0}
 .more-wrap.open{display:block}
 .proj-sub{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--text);margin:32px 0 6px;letter-spacing:-.01em}
@@ -59,11 +64,6 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nh);border-bottom:1px solid
 .psub{font-family:var(--serif);font-weight:700;font-size:1.7rem;color:var(--text);margin-top:36px;margin-bottom:6px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
 .psub::before{content:'';width:4px;height:20px;background:var(--accent);border-radius:2px}
 .psub-count{font-family:var(--sans);font-size:.8rem;font-weight:500;color:var(--text3);background:var(--border-l);padding:2px 10px;border-radius:10px;letter-spacing:0}
-.pi{padding:18px 0;border-bottom:1px solid var(--border-l)}.pi:last-child{border-bottom:none}
-.psub{font-family:var(--serif);font-weight:700;font-size:1.7rem;color:var(--text);margin-top:36px;margin-bottom:6px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
-.psub::before{content:'';width:4px;height:20px;background:var(--accent);border-radius:2px}
-.psub-count{font-family:var(--sans);font-size:.8rem;font-weight:500;color:var(--text3);background:var(--border-l);padding:2px 10px;border-radius:10px;letter-spacing:0}
-.pi{padding:18px 0;border-bottom:1px solid var(--border-l)}.pi:last-child{border-bottom:none}
 .pi{padding:18px 0;border-bottom:1px solid var(--border-l)}.pi:last-child{border-bottom:none}
 .pt{font-family:var(--sans);font-weight:600;font-size:1.02rem;color:var(--text);margin-bottom:5px;line-height:1.52}
 .plabel{font-family:var(--serif);font-weight:700;font-size:.88rem;color:var(--accent);margin-right:6px}
@@ -100,7 +100,9 @@ footer{text-align:center;padding:44px 20px;font-size:.85rem;color:var(--text3);b
 .nl.open{display:flex}.nh{display:block;margin-left:auto}
 .layout{flex-direction:column;padding:calc(var(--nh) + 24px) 20px 0;gap:28px}
 .sidebar{width:100%;position:relative;top:0;display:flex;flex-direction:column;align-items:center;text-align:center}
-.sl{align-items:center}.pg{grid-template-columns:1fr}
+.sl{align-items:center}
+.proj-item{grid-template-columns:1fr;gap:14px;padding:22px 0}
+.proj-thumb img,.proj-thumb svg{height:auto;max-height:260px}
 }
 </style>
 </head>
@@ -149,75 +151,51 @@ footer{text-align:center;padding:44px 20px;font-size:.85rem;color:var(--text3);b
 
 <section id="projects" class="sec">
 <h2 class="st">Projects</h2>
-<div class="pg">
+<div class="proj-list">
 
-<div class="pc">
-<img class="pth" src="dtl_framework_2.png" alt="DL-based CE">
-<div class="pb">
-<h3>Deep Learning-Assisted Robust Channel Estimation over Phase-Drifting Backscatter Links</h3>
-<p>This project explores <span class="hi">deep learning-aided channel estimation</span> for backscatter communication systems, addressing the <span class="bold">residual phase drift</span> that biases conventional estimators and causes an SNR-independent error floor. It pairs a <span class="bold">closed-form model-based estimate</span> with a <span class="bold">learned correction</span> that engages only under large drift, improving estimation robustness without sacrificing low complexity.</p>
+<article class="proj-item">
+<div class="proj-thumb"><img src="dtl_framework_2.png" alt="DL-based CE"></div>
+<div class="proj-body">
+<h3 class="proj-title">Deep Learning-Assisted Robust Channel Estimation over Phase-Drifting Backscatter Links</h3>
+<p class="proj-desc">This project explores <span class="hi">deep learning-aided channel estimation</span> for backscatter communication systems, addressing the <span class="bold">residual phase drift</span> that biases conventional estimators and causes an SNR-independent error floor. It pairs a <span class="bold">closed-form model-based estimate</span> with a <span class="bold">learned correction</span> that engages only under large drift, improving estimation robustness without sacrificing low complexity.</p>
 <div class="ts"><span>PyTorch</span><span>Python</span></div>
 <div class="pl"><a href="https://github.com/hyrecon/Deep-Learning-Aided-Phase-Aware-Channel-Estimation-RG-CNN-/tree/main" target="_blank">Code</a></div>
-<div class="pl"></div>
-</div></div>
+</div>
+</article>
 
-<div class="pc">
-<img class="pth" src="figure-bmc.PNG" alt="Phase-aware channel estimators">
-<div class="pb">
-<h3>Phase-Aware Channel Estimation for Monostatic Backscatter Communications</h3>
-<p>Proposed the <span class="hi">lifted LS/LMMSE estimators</span> that model <span class="bold">residual phase drift</span> — arising from carrier frequency offset due to independent PLLs at the Tx and Rx, and hardware mismatch — as a nuisance parameter to achieve accurate composite channel estimation in monostatic backscatter links, with <span class="bold">closed-form solutions</span> derived from a linearized two-parameter pilot observation model.</p>
+<article class="proj-item">
+<div class="proj-thumb"><img src="figure-bmc.PNG" alt="Phase-aware channel estimators"></div>
+<div class="proj-body">
+<h3 class="proj-title">Phase-Aware Channel Estimation for Monostatic Backscatter Communications</h3>
+<p class="proj-desc">Proposed the <span class="hi">lifted LS/LMMSE estimators</span> that model <span class="bold">residual phase drift</span> — arising from carrier frequency offset due to independent PLLs at the Tx and Rx, and hardware mismatch — as a nuisance parameter to achieve accurate composite channel estimation in monostatic backscatter links, with <span class="bold">closed-form solutions</span> derived from a linearized two-parameter pilot observation model.</p>
 <div class="ts"><span>MATLAB</span><span>Python</span><span>Ansys HFSS</span><span>PCB Design</span><span>SDR</span></div>
 <div class="pl">
 <a href="https://www.youtube.com/watch?v=pwyy--7GOnE" target="_blank">Demo Video</a>
 <a href="https://github.com/hyrecon/Phase-Aware-Channel-Estimation/tree/main" target="_blank">Code</a>
-</div></div></div>
+</div>
+</div>
+</article>
 
-<div class="pc">
-<img class="pth" src="figure-setup.PNG" alt="BMC systems">
-<div class="pb">
-<h3>Ultra-Low-Power Monostatic Practical Backscatter Systems for Multimedia Communication</h3>
-<p>Implemented an <span class="hi">end-to-end monostatic backscatter system</span> with a SDR reader</span> and custom-designed <span class="bold">semi-passive backscatter tag</span>, <span class="bold">2&#xd7;1 High-gain &amp; High-isolation Yagi-Uda antenna array</span>, and <span class="bold">signal processing chain</span> for over-the-air multimedia (full-color image) transmission.</p>
+<article class="proj-item">
+<div class="proj-thumb"><img src="figure-setup.PNG" alt="BMC systems"></div>
+<div class="proj-body">
+<h3 class="proj-title">Ultra-Low-Power Monostatic Practical Backscatter Systems for Multimedia Communication</h3>
+<p class="proj-desc">Implemented an <span class="hi">end-to-end monostatic backscatter system</span> with an SDR reader and custom-designed <span class="bold">semi-passive backscatter tag</span>, <span class="bold">2&#xd7;1 high-gain &amp; high-isolation Yagi-Uda antenna array</span>, and <span class="bold">signal processing chain</span> for over-the-air multimedia (full-color image) transmission.</p>
 <div class="ts"><span>MATLAB</span><span>Python</span><span>Ansys HFSS</span><span>PCB Design</span><span>SDR</span></div>
 <div class="pl"><a href="https://github.com/hyrecon/Backscatter-Multimedia-Communication-System/tree/main" target="_blank">Code</a></div>
-</div></div>
+</div>
+</article>
 
-<div class="pc">
-<img class="pth" src="figure-abt.PNG" alt="Active backscatter reflection Amplifier">
-<div class="pb">
-<h3>Backscatter Range Extension via Reflection Amplifiers</h3>
-<p>Designed an <span class="hi">active backscatter tag</span> using a <span class="hi">reflection amplifier</span> with a <span class="bold">90° hybrid coupler</span> and <span class="bold">BJT gain stage</span>, enabling <span class="hi">range extension</span> beyond conventional passive tag limits.</p>
+<article class="proj-item">
+<div class="proj-thumb"><img src="figure-abt.PNG" alt="Active backscatter reflection Amplifier"></div>
+<div class="proj-body">
+<h3 class="proj-title">Backscatter Range Extension via Reflection Amplifiers</h3>
+<p class="proj-desc">Designed an <span class="hi">active backscatter tag</span> using a <span class="hi">reflection amplifier</span> with a <span class="bold">90° hybrid coupler</span> and <span class="bold">BJT gain stage</span>, enabling <span class="hi">range extension</span> beyond conventional passive tag limits.</p>
 <div class="ts"><span>ADS</span><span>Ansys HFSS</span><span>PCB Design</span><span>SDR</span></div>
-</div></div>
+</div>
+</article>
 
 </div>
-
-<button class="show-more-btn" id="projToggle" onclick="toggleSection('projMore','projToggle','Past Projects')">
-<span>Past Projects</span>
-<svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-</button>
-
-<div class="more-wrap" id="projMore">
-<h3 class="proj-sub">Past Projects</h3>
-<div class="pg">
-<div class="pc">
-<img class="pth" src="figure-cart.PNG" alt="Smart Auto Shopping Cart prototype">
-<div class="pb">
-<h3>Smart Auto Shopping Cart (Barrier-Free)</h3>
-<p>Built a <span class="hi">barrier-free autonomous shopping cart</span> for wheelchair users, integrating Arduino, RFID-based payment, AI voice recognition for navigation control, ultrasonic sensor for collision avoidance, and 3D-printed braille labels.</p>
-<div class="ts"><span>Arduino</span><span>3D Printing</span><span>Laser Cutting</span><span>AI Voice</span><span>RFID</span></div>
-<div class="pl"><a href="https://github.com/hyrecon/Hackathon/tree/main" target="_blank">Code</a></div>
-</div></div>
-<div class="pc">
-<img class="pth" src="figure-farm.PNG" alt="Overseas volunteering in Thailand">
-<div class="pb">
-<h3>Smart Farm, Hollow Clock, and Memory Game (Overseas Volunteering)</h3>
-<p>Taught <span class="hi">3D printing and Arduino programming</span> courses to local students as part of overseas volunteering program in Thailand, guiding projects including a smart farm, hollow clock, and memory game to introduce practical electronics and rapid prototyping skills.</p>
-<div class="ts"><span>3D Printing</span><span>Arduino</span><span>Volunteering</span></div>
-<div class="pl"><a href="textbook.pdf" target="_blank">Textbook</a><a href="https://github.com/hyrecon/Overseas-Volunteering/tree/main" target="_blank">Code</a></div>
-</div></div>
-</div>
-</div>
-
 </section>
 
 <section id="publications" class="sec">
@@ -232,7 +210,6 @@ footer{text-align:center;padding:44px 20px;font-size:.85rem;color:var(--text3);b
 <div class="pa">N. Ha, <strong>H. Ryu</strong>, H. Jeong, H. Kim, G. Kim, A. Georgiadis, M. M. Tentzeris, and S. Kim<sup style="font-size:.9em">*</sup></div>
 <div class="pv"><em>IEEE Microwave Magazine</em>, <span style="font-style: normal;">Jun. 2026</span></div>
 <div class="pl"><a href="javascript:void(0)">PDF (TBA)</a></div>
-<!-- <div class="pl" style="visibility: hidden;"><a href="javascript:void(0)">PDF (TBA)</a></div> -->
 </div>
 
 <div class="pi">
@@ -266,6 +243,38 @@ footer{text-align:center;padding:44px 20px;font-size:.85rem;color:var(--text3);b
 <div class="pa"><strong>H. Ryu</strong><sup style="font-size:.9em">†</sup> and S. Kim<sup style="font-size:.9em">*</sup></div>
 <div class="pv"><em>IEEE International Symposium on Antennas and Propagation (AP-S)</em>, <span style="font-style: normal;">Jul. 2025</span></div>
 <div class="pl"><a href="High-Isolation_Yagi-Uda_Antenna_Array_Using_Split-Ring_Resonators_for_Practical_Backscatter_System_f1.pdf">PDF</a></div>
+</div>
+
+<button class="show-more-btn" id="pastProjectsToggle" onclick="toggleSection('pastProjectsMore','pastProjectsToggle','Past Projects')">
+<span>Past Projects</span>
+<svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+</button>
+
+<div class="more-wrap" id="pastProjectsMore">
+<h3 class="proj-sub">Past Projects</h3>
+<div class="proj-list">
+
+<article class="proj-item">
+<div class="proj-thumb"><img src="figure-cart.PNG" alt="Smart Auto Shopping Cart prototype"></div>
+<div class="proj-body">
+<h3 class="proj-title">Smart Auto Shopping Cart (Barrier-Free)</h3>
+<p class="proj-desc">Built a <span class="hi">barrier-free autonomous shopping cart</span> for wheelchair users, integrating Arduino, RFID-based payment, AI voice recognition for navigation control, ultrasonic sensor for collision avoidance, and 3D-printed braille labels.</p>
+<div class="ts"><span>Arduino</span><span>3D Printing</span><span>Laser Cutting</span><span>AI Voice</span><span>RFID</span></div>
+<div class="pl"><a href="https://github.com/hyrecon/Hackathon/tree/main" target="_blank">Code</a></div>
+</div>
+</article>
+
+<article class="proj-item">
+<div class="proj-thumb"><img src="figure-farm.PNG" alt="Overseas volunteering in Thailand"></div>
+<div class="proj-body">
+<h3 class="proj-title">Smart Farm, Hollow Clock, and Memory Game (Overseas Volunteering)</h3>
+<p class="proj-desc">Taught <span class="hi">3D printing and Arduino programming</span> courses to local students as part of overseas volunteering program in Thailand, guiding projects including a smart farm, hollow clock, and memory game to introduce practical electronics and rapid prototyping skills.</p>
+<div class="ts"><span>3D Printing</span><span>Arduino</span><span>Volunteering</span></div>
+<div class="pl"><a href="textbook.pdf" target="_blank">Textbook</a><a href="https://github.com/hyrecon/Overseas-Volunteering/tree/main" target="_blank">Code</a></div>
+</div>
+</article>
+
+</div>
 </div>
 </section>
 
