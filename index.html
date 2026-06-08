@@ -7,7 +7,7 @@
 <link rel="icon" type="image/png" href="logo_PNU.png">
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f5f4f0;--surface:#fff;--text:#1a1a1a;--text2:#3a3a3a;--text3:#777;--accent:#1d5d8a;--accent-h:#124060;--accent-l:#e6f0f7;--border:#ddd9d3;--border-l:#eae7e1;--tag-bg:#ebe6db;--tag-c:#5a5040;--sw:280px;--nh:56px;--serif:'Newsreader',Georgia,serif;--sans:'Outfit',-apple-system,sans-serif;--mw:840px;--ease:.28s cubic-bezier(.4,0,.2,1)}
+:root{--bg:#f5f4f0;--surface:#fff;--text:#1a1a1a;--text2:#3a3a3a;--text3:#777;--accent:#1d5d8a;--accent-h:#124060;--accent-l:#e6f0f7;--border:#ddd9d3;--border-l:#eae7e1;--tag-bg:#ebe6db;--tag-c:#5a5040;--sw:280px;--nh:56px;--serif:'Newsreader',Georgia,serif;--sans:'Outfit',-apple-system,sans-serif;--mw:740px;--ease:.28s cubic-bezier(.4,0,.2,1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nh)+24px)}
 body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
@@ -16,7 +16,7 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nh);border-bottom:1px solid
 .nl{display:flex;gap:4px}.nl a{text-decoration:none;color:var(--text2);font-size:.9rem;font-weight:500;padding:6px 14px;border-radius:8px;transition:all var(--ease)}
 .nl a:hover,.nl a.active{color:var(--accent);background:var(--accent-l)}
 .nh{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--text)}.nh svg{width:22px;height:22px}
-.layout{display:flex;max-width:1160px;margin:0 auto;padding-top:calc(var(--nh) + 40px);padding-left:40px;padding-right:40px;gap:56px}
+.layout{display:flex;max-width:1080px;margin:0 auto;padding-top:calc(var(--nh) + 40px);padding-left:40px;padding-right:40px;gap:56px}
 .sidebar{width:var(--sw);flex-shrink:0;position:sticky;top:calc(var(--nh) + 40px);align-self:flex-start}
 .pp{width:200px;height:200px;border-radius:50%;object-fit:cover;border:4px solid var(--border-l);margin-bottom:22px;box-shadow:0 6px 28px rgba(0,0,0,.07)}
 .sidebar h1{font-family:var(--serif);font-size:1.65rem;font-weight:700;letter-spacing:-.02em;margin-bottom:3px}
@@ -39,30 +39,38 @@ nav{position:fixed;top:0;left:0;right:0;height:var(--nh);border-bottom:1px solid
 .bold{font-weight:700;color:var(--text)}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
 .tag{padding:6px 16px;background:var(--tag-bg);color:var(--tag-c);border-radius:20px;font-size:.85rem;font-weight:500}
-.psub{font-family:var(--serif);font-weight:700;font-size:1.7rem;color:var(--text);margin-top:36px;margin-bottom:14px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
-.psub::before{content:'';width:4px;height:20px;background:var(--accent);border-radius:2px}
-.py{font-family:var(--serif);font-weight:700;font-size:1.08rem;color:var(--accent);margin-top:30px;margin-bottom:8px}
-.pub-list{display:flex;flex-direction:column}
-.pub-item{display:grid;grid-template-columns:250px minmax(0,1fr);gap:28px;align-items:center;padding:26px 0;border-bottom:1px solid var(--border-l)}
-.pub-item:first-of-type{padding-top:8px}
-.pub-item:last-child{border-bottom:none}
-.pub-thumb{width:100%;border-radius:8px;overflow:hidden;background:transparent;display:flex;align-items:center;justify-content:center}
-.pub-thumb img{width:100%;height:178px;object-fit:contain;object-position:center;display:block;background:transparent}
-.pub-thumb svg{width:100%;height:178px;display:block}
-.pub-body{min-width:0}
-.pub-title{font-family:var(--sans);font-weight:600;font-size:1.1rem;line-height:1.42;color:var(--text);letter-spacing:-.01em;margin-bottom:6px}
-.pub-authors{font-family:var(--sans);font-size:.92rem;color:var(--text2);line-height:1.52;margin-bottom:4px}
-.pub-authors strong{color:var(--accent);font-weight:700}
-.pub-venue{font-family:var(--sans);font-size:.9rem;color:var(--text3);line-height:1.55;font-style:italic;margin-bottom:7px}
-.pub-venue span{font-style:normal}
-.pl{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
-.pl a{font-size:.78rem;font-weight:600;text-decoration:none;color:var(--accent);padding:5px 16px;border:1.5px solid var(--accent);border-radius:6px;transition:all var(--ease);text-transform:uppercase;letter-spacing:.05em;text-align:center;line-height:1.2}
-.pl a:hover{background:var(--accent);color:#fff}
-.more-wrap{display:none;margin-top:0}.more-wrap.open{display:block}
+
+/* ---- Figure-row layout: merged Publications + Projects (image-style) ---- */
+.workrow{display:flex;gap:26px;padding:24px 0;border-bottom:1px solid var(--border-l);align-items:flex-start}
+.workrow:last-child{border-bottom:none}
+.workrow .thumb{width:240px;flex-shrink:0;border:1px solid var(--border-l);border-radius:10px;background:#fff;padding:10px;overflow:hidden;transition:border-color var(--ease),box-shadow var(--ease)}
+.workrow:hover .thumb{border-color:var(--accent);box-shadow:0 6px 24px rgba(29,93,138,.1)}
+.workrow .thumb img{display:block;width:100%;height:auto;border-radius:4px}
+.workrow .body{flex:1;min-width:0}
+.workrow .body .pt{font-size:1.14rem;line-height:1.45;margin-bottom:7px}
+.workrow .body h3{font-family:var(--serif);font-size:1.05rem;font-weight:600;line-height:1.45;color:var(--text);margin-bottom:8px}
+.workrow .body p{font-size:.92rem;color:var(--text2);line-height:1.66;margin-bottom:10px}
+.workrow .body .ts{margin:2px 0 0}
+.workrow .body .pl{margin-top:10px}
+
+.ts{display:flex;flex-wrap:wrap;gap:5px}
+.ts span{font-size:.74rem;padding:3px 9px;background:var(--accent-l);color:var(--accent);border-radius:5px;font-weight:600}
+.more-wrap{display:none;margin-top:0}
+.more-wrap.open{display:block}
 .show-more-btn{display:flex;align-items:center;justify-content:center;gap:6px;margin:28px auto 0;padding:9px 28px;background:none;border:1.5px solid var(--border);border-radius:8px;font-family:var(--sans);font-size:.88rem;font-weight:500;color:var(--text2);cursor:pointer;transition:all var(--ease)}
 .show-more-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-l)}
 .show-more-btn svg{width:14px;height:14px;transition:transform var(--ease)}
 .show-more-btn.open svg{transform:rotate(180deg)}
+.py{font-family:var(--serif);font-weight:700;font-size:1.1rem;color:var(--accent);margin-top:28px;margin-bottom:10px}
+.psub{font-family:var(--serif);font-weight:700;font-size:1.7rem;color:var(--text);margin-top:36px;margin-bottom:6px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+.psub::before{content:'';width:4px;height:20px;background:var(--accent);border-radius:2px}
+.pt{font-family:var(--sans);font-weight:600;font-size:1.02rem;color:var(--text);margin-bottom:5px;line-height:1.52}
+.pa{font-family:var(--sans);font-size:.92rem;color:var(--text2);margin-bottom:3px}
+.pa strong{color:var(--accent);font-weight:700}
+.pv{font-family:var(--sans);font-size:.88rem;color:var(--text3);font-style:italic}
+.pl{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+.pl a{font-size:.78rem;font-weight:600;text-decoration:none;color:var(--accent);padding:5px 16px;border:1.5px solid var(--accent);border-radius:6px;transition:all var(--ease);text-transform:uppercase;letter-spacing:.05em;text-align:center}
+.pl a:hover{background:var(--accent);color:#fff}
 .ni{display:flex;gap:18px;padding:14px 0;border-bottom:1px solid var(--border-l);align-items:baseline}
 .ni:last-child{border-bottom:none}
 .nd{font-family:var(--sans);font-size:.85rem;font-weight:600;color:var(--accent);white-space:nowrap;min-width:82px}
@@ -90,7 +98,9 @@ footer{text-align:center;padding:44px 20px;font-size:.85rem;color:var(--text3);b
 .nl.open{display:flex}.nh{display:block;margin-left:auto}
 .layout{flex-direction:column;padding:calc(var(--nh) + 24px) 20px 0;gap:28px}
 .sidebar{width:100%;position:relative;top:0;display:flex;flex-direction:column;align-items:center;text-align:center}
-.sl{align-items:center}.pub-item{grid-template-columns:1fr;gap:14px;align-items:start}.pub-thumb img,.pub-thumb svg{height:auto;max-height:260px}.main{max-width:100%}
+.sl{align-items:center}
+.workrow{flex-direction:column;gap:14px}
+.workrow .thumb{width:100%;max-width:380px}
 }
 </style>
 </head>
@@ -125,135 +135,116 @@ footer{text-align:center;padding:44px 20px;font-size:.85rem;color:var(--text3);b
 
 <section id="about" class="sec">
 <h2 class="st">About</h2>
-<p>Hi ! My name is <span class="bold">Hanyeol Ryu</span> and I am a research assistant in the Department of Electronics Engineering at <a href="javascript:void(0)">Pusan National University</a> <span class="bold">B.S. '26</span>, advised by <a href="javascript:void(0)">Prof. Sangkil Kim</a>.</p>
+<p>Hi ! My name is <span class="bold">Hanyeol Ryu</span> (You can just call me Hanyeol :D) and I am a research assistant in the Department of Electronics Engineering at <a href="javascript:void(0)">Pusan National University</a> <span class="bold">(B.S. '26)</span>, advised by <a href="javascript:void(0)">Prof. Sangkil Kim</a>.</p>
 <p>Outside the lab, you'll find me swimming &#x1F3CA;, running &#x1F3C3;, making coffee &#x2615;, or exploring electronics &#x1F4BB; just for the fun of understanding how they work.</p>
-<p>I'm curious about the enduring philosophical questions &#x2014; what is justice, and how ought we to live &#x1F468;&#x200D;&#x1F9B3; &#x2014; as well as the mysteries of the universe 🪐, like what happens to information inside a black hole ⚫. I always welcome a conversation about any of these over coffee.</p>
+<p>I'm curious about the enduring philosophical questions &#x2014; what is justice, and how ought we to live &#x1F468;&#x200D;&#x1F9B3; &#x2014; as well as the mysteries of the universe &#x1FA90;, like what happens to information inside a black hole &#x26AB;. I always welcome a conversation about any of these over coffee.</p>
 </section>
 
 <section id="research" class="sec">
 <h2 class="st">Research</h2>
-<p>My research focuses on <span class="hi">low-power wireless communications</span>, <span class="hi">wireless sensing</span>, and <span class="hi">artificial intelligence</span> to enable next-generation intelligent sensing and communication platforms for IoT applications.</p>
+<p>My research focuses on <span class="hi">low-power wireless communications</span> (e.g., backscatter communications), <span class="hi">wireless sensing</span>, and <span class="hi">artificial intelligence</span> to enable next-generation intelligent sensing and communication platforms for IoT applications.</p>
 <p>I am broadly interested in the following areas:</p>
 <div class="tags"><span class="tag">Backscatter Communications</span><span class="tag">Channel Modeling &amp; Estimation</span><span class="tag">RF Systems</span><span class="tag">Software-Defined Radio</span><span class="tag">AI/ML for Intelligent Wireless Communications</span><span class="tag">Wireless Sensing</span><span class="tag">Internet of Things</span></div>
 </section>
 
 <section id="publications" class="sec">
 <h2 class="st">Publications</h2>
-<p style="font-size:.85rem;color:var(--text3);margin-top:-14px"><sup style="font-size:1em">†</sup>: First author, <sup style="font-size:1em">*</sup>: Corresponding author</p>
+<p style="font-size:.85rem;color:var(--text3);margin-top:-14px">(<sup style="font-size:1em">&dagger;</sup>: First author, <sup style="font-size:1em">*</sup>: Corresponding author)</p>
 
 <h3 class="psub">Journal</h3>
 
 <div class="py">2026</div>
-<div class="pub-list">
-<article class="pub-item">
-<div class="pub-thumb">
-<svg viewBox="0 0 260 180" role="img" aria-label="ISABC overview">
-<rect width="260" height="180" rx="14" fill="#ffffff"/>
-<rect x="24" y="30" width="70" height="42" rx="10" fill="#e6f0f7" stroke="#1d5d8a" stroke-width="2"/>
-<text x="59" y="56" text-anchor="middle" font-family="Outfit, sans-serif" font-size="13" font-weight="700" fill="#1d5d8a">Sensing</text>
-<rect x="166" y="30" width="70" height="42" rx="10" fill="#e6f0f7" stroke="#1d5d8a" stroke-width="2"/>
-<text x="201" y="56" text-anchor="middle" font-family="Outfit, sans-serif" font-size="13" font-weight="700" fill="#1d5d8a">IoT</text>
-<circle cx="130" cy="104" r="35" fill="#f5f4f0" stroke="#1d5d8a" stroke-width="2"/>
-<text x="130" y="101" text-anchor="middle" font-family="Outfit, sans-serif" font-size="15" font-weight="700" fill="#1a1a1a">ISABC</text>
-<text x="130" y="119" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" fill="#777">Backscatter</text>
-<path d="M95 58 C108 70 112 78 122 88" fill="none" stroke="#1d5d8a" stroke-width="2" marker-end="url(#arr1)"/>
-<path d="M165 58 C152 70 148 78 138 88" fill="none" stroke="#1d5d8a" stroke-width="2" marker-end="url(#arr1)"/>
-<path d="M95 126 C110 136 150 136 165 126" fill="none" stroke="#777" stroke-width="2" stroke-dasharray="4 4"/>
-<defs><marker id="arr1" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1d5d8a"/></marker></defs>
-</svg>
-</div>
-<article class="pub-item">
-<div class="pub-thumb"><img src="tba.PNG" alt="ISABC"></div>
-<div class="pub-body">
-<div class="pub-title">Integrated Sensing and Backscatter Communication: Toward Self-Sustainable Autonomous IoT Networks</div>
-<div class="pub-authors">N. Ha, <strong>H. Ryu</strong>, H. Jeong, H. Kim, G. Kim, A. Georgiadis, M. M. Tentzeris, and S. Kim<sup style="font-size:.9em">*</sup></div>
-<div class="pub-venue"><em>IEEE Microwave Magazine</em>, <span>Jun. 2026.</span></div>
-<div class="pl"><a href="javascript:void(0)">PDF TBA</a></div>
-</div>
-</article>
 
-<article class="pub-item">
-<div class="pub-thumb"><img src="figure-setup.PNG" alt="Monostatic backscatter platform"></div>
-<div class="pub-body">
-<div class="pub-title">Ultra-low-power Monostatic Backscatter Platform with Phase-Aware Channel Estimation and System-Level Validation</div>
-<div class="pub-authors"><strong>H. Ryu</strong><sup style="font-size:.9em">†</sup> and S. Kim<sup style="font-size:.9em">*</sup></div>
-<div class="pub-venue"><em>IEEE Internet of Things Journal</em>, <span>May 2026.</span></div>
-<div class="pl"><a href="Ultra-low-power_Monostatic_Backscatter_Platform_with_Phase-Aware_Channel_Estimation_and_System-Level_Validation_f1.pdf">PDF</a><a href="https://github.com/hyrecon/Backscatter-Multimedia-Communication-System/tree/main" target="_blank">Code</a><a href="https://www.youtube.com/watch?v=pwyy--7GOnE" target="_blank">Demo Video</a></div>
+<div class="workrow">
+<div class="thumb"><img src="tba.png" alt="ISABC concept" onerror="this.parentElement.remove()"></div>
+<div class="body">
+<div class="pt">Integrated Sensing and Backscatter Communication (ISABC): Toward Self-Sustainable Autonomous IoT Networks</div>
+<div class="pa">N. Ha, <strong>H. Ryu</strong>, H. Jeong, H. Kim, G. Kim, A. Georgiadis, M. M. Tentzeris, and S. Kim<sup style="font-size:.9em">*</sup></div>
+<div class="pv"><em>IEEE Microwave Magazine</em>, <span style="font-style: normal;">Jun. 2026</span></div>
+<div class="pl"><a href="javascript:void(0)">PDF (TBA)</a></div>
 </div>
-</article>
+</div>
+
+<div class="workrow">
+<div class="thumb"><img src="figure-bmc.PNG" alt="Phase-aware channel estimation" onerror="this.parentElement.remove()"></div>
+<div class="body">
+<div class="pt">Ultra-low-power Monostatic Backscatter Platform with Phase-Aware Channel Estimation and System-Level Validation</div>
+<div class="pa"><strong>H. Ryu</strong><sup style="font-size:.9em">&dagger;</sup> and S. Kim<sup style="font-size:.9em">*</sup></div>
+<div class="pv"><em>IEEE Internet of Things Journal</em>, <span style="font-style: normal;">May 2026</span></div>
+<div class="pl">
+<a href="Ultra-low-power_Monostatic_Backscatter_Platform_with_Phase-Aware_Channel_Estimation_and_System-Level_Validation_f1.pdf">PDF</a>
+<a href="https://github.com/hyrecon/Phase-Aware-Channel-Estimation/tree/main" target="_blank">Code</a>
+<a href="https://www.youtube.com/watch?v=pwyy--7GOnE" target="_blank">Demo Video</a>
+</div>
+</div>
 </div>
 
 <div class="py">2025</div>
-<div class="pub-list">
-<article class="pub-item">
-<div class="pub-thumb"><img src="figure-abt.PNG" alt="Reflection amplifier backscatter tag"></div>
-<div class="pub-body">
-<div class="pub-title">Improved Backscattering Communication Range Using Reflection Amplifiers</div>
-<div class="pub-authors">J. Choi<sup style="font-size:.9em">†</sup>, <strong>H. Ryu</strong><sup style="font-size:.9em">†</sup>, and S. Kim<sup style="font-size:.9em">*</sup></div>
-<div class="pub-venue"><em>The Journal of Korean Institute of Electromagnetic Engineering and Science</em>, <span>Feb. 2025.</span></div>
+
+<div class="workrow">
+<div class="thumb"><img src="figure-abt.PNG" alt="Reflection amplifier tag" onerror="this.parentElement.remove()"></div>
+<div class="body">
+<div class="pt">Improved Backscattering Communication Range Using Reflection Amplifiers</div>
+<div class="pa">J. Choi<sup style="font-size:.9em">&dagger;</sup>, <strong>H. Ryu</strong><sup style="font-size:.9em">&dagger;</sup>, and S. Kim<sup style="font-size:.9em">*</sup></div>
+<div class="pv"><em>The Journal of Korean Institute of Electromagnetic Engineering and Science</em>, <span style="font-style: normal;">Feb. 2025</span></div>
 <div class="pl"><a href="jkiees-36-3-266.pdf">PDF</a></div>
 </div>
-</article>
 </div>
 
 <h3 class="psub">Conference</h3>
 
 <div class="py">2026</div>
-<div class="pub-list">
-<article class="pub-item">
-<div class="pub-thumb"><img src="dtl_framework_2.png" alt="Deep learning assisted channel estimation framework"></div>
-<div class="pub-body">
-<div class="pub-title">Deep Learning-Aided Phase-Aware Channel Estimation for Error-Floor Suppression over Phase-Drifting Backscatter Links</div>
-<div class="pub-authors"><strong>H. Ryu</strong><sup style="font-size:.9em">†</sup> and S. Kim<sup style="font-size:.9em">*</sup></div>
-<div class="pub-venue"><em>IEEE International Symposium on Intelligent Signal Processing and Communication Systems</em>, <span>Oct. 2026.</span></div>
-<div class="pl"><a href="ISPACS2026_rgcnn_v0.pdf">PDF</a><a href="https://github.com/hyrecon/Deep-Learning-Aided-Phase-Aware-Channel-Estimation-RG-CNN-/tree/main" target="_blank">Code</a></div>
+
+<div class="workrow">
+<div class="thumb"><img src="dtl_framework_2.png" alt="DL-aided channel estimation framework" onerror="this.parentElement.remove()"></div>
+<div class="body">
+<div class="pt">Deep Learning-Aided Phase-Aware Channel Estimation for Error-Floor Suppression over Phase-Drifting Backscatter Links</div>
+<div class="pa"><strong>H. Ryu</strong><sup style="font-size:.9em">&dagger;</sup> and S. Kim<sup style="font-size:.9em">*</sup></div>
+<div class="pv"><em>IEEE International Symposium on Intelligent Signal Processing and Communication Systems (ISPACS)</em>, <span style="font-style: normal;">Oct. 2026</span></div>
+<div class="pl">
+<a href="ISPACS2026_rgcnn_v0.pdf">PDF</a>
+<a href="https://github.com/hyrecon/Deep-Learning-Aided-Phase-Aware-Channel-Estimation-RG-CNN-/tree/main" target="_blank">Code</a>
 </div>
-</article>
+</div>
 </div>
 
 <div class="py">2025</div>
-<div class="pub-list">
-<article class="pub-item">
-<div class="pub-thumb"><img src="figure-bmc.PNG" alt="High isolation Yagi Uda antenna array"></div>
-<div class="pub-body">
-<div class="pub-title">High-Isolation Yagi-Uda Antenna Array using Split-Ring Resonators for Practical Backscatter System</div>
-<div class="pub-authors"><strong>H. Ryu</strong><sup style="font-size:.9em">†</sup> and S. Kim<sup style="font-size:.9em">*</sup></div>
-<div class="pub-venue"><em>IEEE International Symposium on Antennas and Propagation</em>, <span>Jul. 2025.</span></div>
+
+<div class="workrow">
+<div class="thumb"><img src="figure-setup.png" alt="BMC" onerror="this.parentElement.remove()"></div>
+<div class="body">
+<div class="pt">High-Isolation Yagi-Uda Antenna Array using Split-Ring Resonators for Practical Backscatter System</div>
+<div class="pa"><strong>H. Ryu</strong><sup style="font-size:.9em">&dagger;</sup> and S. Kim<sup style="font-size:.9em">*</sup></div>
+<div class="pv"><em>IEEE International Symposium on Antennas and Propagation (AP-S)</em>, <span style="font-style: normal;">Jul. 2025</span></div>
 <div class="pl"><a href="High-Isolation_Yagi-Uda_Antenna_Array_Using_Split-Ring_Resonators_for_Practical_Backscatter_System_f1.pdf">PDF</a></div>
 </div>
-</article>
 </div>
 
-<button class="show-more-btn" id="pastProjectsToggle" onclick="toggleSection('pastProjectsMore','pastProjectsToggle','Past Projects')">
+<button class="show-more-btn" id="projToggle" onclick="toggleSection('projMore','projToggle','Past Projects')">
 <span>Past Projects</span>
 <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
 </button>
 
-<div class="more-wrap" id="pastProjectsMore">
+<div class="more-wrap" id="projMore">
 <h3 class="psub">Past Projects</h3>
-<div class="pub-list">
-<article class="pub-item">
-<div class="pub-thumb"><img src="figure-cart.PNG" alt="Smart auto shopping cart"></div>
-<div class="pub-body">
-<div class="pub-title">Smart Auto Shopping Cart</div>
-<div class="pub-authors"><strong>H. Ryu</strong></div>
-<div class="pub-venue"><span>Pusan National University Hackathon, Aug. 2023.</span></div>
+
+<div class="workrow">
+<div class="thumb"><img src="figure-cart.PNG" alt="Smart Auto Shopping Cart prototype" onerror="this.parentElement.remove()"></div>
+<div class="body">
+<div class="pt">Smart Auto Shopping Cart (Barrier-Free)</div>
 <div class="pl"><a href="https://github.com/hyrecon/Hackathon/tree/main" target="_blank">Code</a></div>
 </div>
-</article>
+</div>
 
-<article class="pub-item">
-<div class="pub-thumb"><img src="figure-farm.PNG" alt="Overseas volunteering projects in Thailand"></div>
-<div class="pub-body">
-<div class="pub-title">Smart Farm, Hollow Clock, and Memory Game</div>
-<div class="pub-authors"><strong>H. Ryu</strong></div>
-<div class="pub-venue"><span>Overseas volunteering program, Thailand.</span></div>
+<div class="workrow">
+<div class="thumb"><img src="figure-farm.PNG" alt="Overseas volunteering in Thailand" onerror="this.parentElement.remove()"></div>
+<div class="body">
+<div class="pt">Smart Farm, Hollow Clock, and Memory Game (Overseas Volunteering)</div>
 <div class="pl"><a href="textbook.pdf" target="_blank">Textbook</a><a href="https://github.com/hyrecon/Overseas-Volunteering/tree/main" target="_blank">Code</a></div>
 </div>
-</article>
-</div>
 </div>
 
+</div>
 </section>
 
 <section id="awards" class="sec">
@@ -279,11 +270,11 @@ footer{text-align:center;padding:44px 20px;font-size:.85rem;color:var(--text3);b
 <div class="ni"><span class="nd">May 2026</span><span class="nt"><span class="badge b-poster">Paper</span>Accepted!! <em><strong>&#x201c;Ultra-low-power Monostatic Backscatter Platform with Phase-Aware Channel Estimation and System-Level Validation&#x201d;</strong></em> in <a href="javascript:void(0)">IEEE Internet of Things Journal</a>.</span></div>
 <div class="ni"><span class="nd">Apr 2026</span><span class="nt"><span class="badge b-patent">Patent</span>Filed Korean patent <em><strong>&#x201c;Residual Phase-Aware Channel Estimation Method for Monostatic Backscatter Communication Systems&#x201d;</strong></em></span></div>
 <div class="ni"><span class="nd">Mar 2026</span><span class="nt">Joined <a href="javascript:void(0)">SWARM Lab</a> as a Research Assistant at <a href="javascript:void(0)">PNU</a>.</span></div>
-<div class="ni"><span class="nd">Feb 2026</span><span class="nt"><span class="badge b-oral">Oral</span>Presented <em><strong>&#x201c;Ultra-low-power Backscatter Platform with Phase-Aware Channel Estimation&#x201d;</strong></em> at <a href="javascript:void(0)">Korean Institute of Electromagnetic Engineering and Science</a>, South Korea.</span></div>
+<div class="ni"><span class="nd">Feb 2026</span><span class="nt"><span class="badge b-oral">Oral</span>Presented <em><strong>&#x201c;Ultra-low-power Backscatter Platform with Phase-Aware Channel Estimation&#x201d;</strong></em> at <a href="javascript:void(0)">Korean Institute of Electromagnetic Engineering and Science (KIEES)</a>, South Korea.</span></div>
 <div class="ni"><span class="nd">Jan 2026</span><span class="nt"><span class="badge b-paper">Paper</span>Preprint <em><strong>&#x201c;Ultra-low-power Monostatic Backscatter Platform with Phase-Aware Channel Estimation and System-Level Validation&#x201d;</strong></em> released on <a href="https://arxiv.org/abs/2601.02227">arXiv</a>.</span></div>
-<div class="ni"><span class="nd">Jul 2025</span><span class="nt"><span class="badge b-oral">Oral</span>Presented <em><strong>&#x201c;High-Isolation Yagi-Uda Antenna Array using Split-Ring Resonators for Practical Backscatter System&#x201d;</strong></em> at <a href="javascript:void(0)">IEEE International Symposium on Antennas and Propagation and USNC-URSI Radio Science Meeting</a>, Ottawa, ON, Canada.</span></div>
+<div class="ni"><span class="nd">Jul 2025</span><span class="nt"><span class="badge b-oral">Oral</span>Presented <em><strong>&#x201c;High-Isolation Yagi-Uda Antenna Array using Split-Ring Resonators for Practical Backscatter System&#x201d;</strong></em> at <a href="javascript:void(0)">IEEE International Symposium on Antennas and Propagation and USNC-URSI Radio Science Meeting (AP-S/URSI)</a>, Ottawa, ON, Canada.</span></div>
 <div class="ni"><span class="nd">Feb 2025</span><span class="nt"><span class="badge b-paper">Paper</span>Published <em><strong>&#x201c;Improved Backscattering Communication Range Using Reflection Amplifiers&#x201d;</strong></em> in <a href="javascript:void(0)">J. Korean Inst. Electromagn. Eng. Sci.</a>, vol. 36, no. 2, pp. 266&#x2013;273.</span></div>
-<div class="ni"><span class="nd">Feb 2025</span><span class="nt"><span class="badge b-poster">Poster</span>Presented <em><strong>&#x201c;Improved Backscattering Communication Range Using Reflection Amplifiers&#x201d;</strong></em> at <a href="javascript:void(0)">Korean Institute of Electromagnetic Engineering and Science</a>, South Korea.</span></div>
+<div class="ni"><span class="nd">Feb 2025</span><span class="nt"><span class="badge b-poster">Poster</span>Presented <em><strong>&#x201c;Improved Backscattering Communication Range Using Reflection Amplifiers&#x201d;</strong></em> at <a href="javascript:void(0)">Korean Institute of Electromagnetic Engineering and Science (KIEES)</a>, South Korea.</span></div>
 </section>
 
 <section id="contact" class="sec">
@@ -292,11 +283,9 @@ footer{text-align:center;padding:44px 20px;font-size:.85rem;color:var(--text3);b
 <div style="display:flex;gap:14px;flex-wrap:wrap">
 <div class="cb"><h3>Email &#x1F4E7;</h3><p><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#57;&#108;&#111;&#53;&#50;&#50;&#64;&#112;&#117;&#115;&#97;&#110;&#46;&#97;&#99;&#46;&#107;&#114;">&#57;&#108;&#111;&#53;&#50;&#50;&#64;&#112;&#117;&#115;&#97;&#110;&#46;&#97;&#99;&#46;&#107;&#114;</a></p></div>
 <div class="cb"><h3>Mobile &#x1F4DE;</h3><p><a href="tel:+821056781421">+82 10-5678-1421</a></p></div>
-</div>
-</section>
+</div></section>
 
-</main>
-</div>
+</main></div>
 
 <footer>&#xa9; 2026 Hanyeol Ryu.</footer>
 
