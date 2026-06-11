@@ -10,74 +10,60 @@
 <meta property="og:description" content="Research Assistant, Dept. of Electronics Engineering, Pusan National University — low-power wireless communications, wireless sensing, and AI/ML.">
 <meta property="og:url" content="https://hyrecon.github.io/">
 <meta property="og:image" content="https://hyrecon.github.io/profile7_400.png">
-<meta name="theme-color" content="#f5f4f0" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#11161c" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#0a0e1a">
 <link rel="icon" type="image/png" href="logo_PNU.png">
-<script>(function(){try{if(window.matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;0,6..72,700;1,6..72,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
---bg:#f5f4f0;--surface:#fff;--text:#1a1a1a;--text2:#3a3a3a;--text3:#777;
---accent:#1d5d8a;--accent-h:#124060;--accent-l:#e6f0f7;
---border:#ddd9d3;--border-l:#eae7e1;--tag-bg:#ebe6db;--tag-c:#5a5040;
---nav-bg:rgba(245,244,240,.82);
---net-rgb:29,93,138;
---glow:rgba(29,93,138,.07);
---card-shadow:0 6px 24px rgba(0,0,0,.06);
+--bg:#0a0e1a;--surface:#11182a;--text:#eef2f9;--text2:#c5cdde;--text3:#8e98ae;
+--accent:#6fb6e9;--accent-h:#a3d2f5;--accent-l:rgba(111,182,233,.13);
+--star-gold:#e8c468;
+--border:#2a3450;--border-l:#1c2438;--tag-bg:#192138;--tag-c:#c5cdde;
+--nav-bg:rgba(10,14,26,.78);
+--net-rgb:111,182,233;
+--card-shadow:0 10px 32px rgba(0,0,0,.45);
 --sw:280px;--nh:56px;
 --serif:'Newsreader',Georgia,serif;--sans:'Outfit',-apple-system,sans-serif;
 --mw:740px;--ease:.28s cubic-bezier(.4,0,.2,1);
-color-scheme:light;
-}
-[data-theme="dark"]{
---bg:#11161c;--surface:#1a212a;--text:#e9ecf0;--text2:#b8c0ca;--text3:#7e8894;
---accent:#5da9d8;--accent-h:#8cc5e8;--accent-l:rgba(93,169,216,.13);
---border:#2b333e;--border-l:#212a34;--tag-bg:#212a34;--tag-c:#b8c0ca;
---nav-bg:rgba(17,22,28,.8);
---net-rgb:93,169,216;
---glow:rgba(93,169,216,.06);
---card-shadow:0 8px 28px rgba(0,0,0,.32);
 color-scheme:dark;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nh)+24px)}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased;transition:background-color .35s ease,color .35s ease}
-::selection{background:var(--accent);color:#fff}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.75;font-size:17px;-webkit-font-smoothing:antialiased}
+::selection{background:var(--accent);color:#0a0e1a}
 a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
 
-/* ---- Ambient background: neural-network canvas + soft top glow ---- */
+/* ---- Deep-space backdrop: nebula glows + starfield canvas + vignette ---- */
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:
+radial-gradient(1100px 700px at 78% -8%,rgba(111,182,233,.10),transparent 60%),
+radial-gradient(900px 650px at 6% 104%,rgba(150,118,234,.08),transparent 62%),
+radial-gradient(700px 500px at 92% 72%,rgba(232,196,104,.045),transparent 60%)}
 #net{position:fixed;inset:0;z-index:0;pointer-events:none}
-body::before{content:'';position:fixed;top:-220px;left:50%;transform:translateX(-50%);width:980px;height:640px;background:radial-gradient(ellipse at center,var(--glow),transparent 62%);pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 120% 90% at 50% 40%,transparent 55%,rgba(2,4,10,.38) 100%)}
 
-nav{position:fixed;top:0;left:0;right:0;height:var(--nh);border-bottom:1px solid var(--border);z-index:100;display:flex;align-items:center;padding:0 40px;backdrop-filter:blur(18px) saturate(1.6);-webkit-backdrop-filter:blur(18px) saturate(1.6);background:var(--nav-bg);transition:background-color .35s ease,box-shadow var(--ease)}
-nav.scrolled{box-shadow:0 6px 24px rgba(0,0,0,.07)}
+nav{position:fixed;top:0;left:0;right:0;height:var(--nh);border-bottom:1px solid var(--border-l);z-index:100;display:flex;align-items:center;padding:0 40px;backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);background:var(--nav-bg);transition:box-shadow var(--ease)}
+nav.scrolled{box-shadow:0 8px 28px rgba(0,0,0,.4)}
 .nprog{position:fixed;top:0;left:0;right:0;height:2px;z-index:101;pointer-events:none}
-.nprog span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-h));transform-origin:0 50%;transform:scaleX(0)}
+.nprog span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--star-gold));transform-origin:0 50%;transform:scaleX(0)}
 .nn{font-family:var(--serif);font-weight:700;font-size:1.25rem;color:var(--text);text-decoration:none;margin-right:48px;letter-spacing:-.02em;white-space:nowrap}
 .nl{display:flex;gap:4px}.nl a{text-decoration:none;color:var(--text2);font-size:.9rem;font-weight:500;padding:6px 14px;border-radius:8px;transition:all var(--ease)}
-.nl a:hover,.nl a.active{color:var(--accent);background:var(--accent-l)}
+.nl a:hover,.nl a.active{color:var(--accent-h);background:var(--accent-l)}
 .nr{margin-left:auto;display:flex;align-items:center;gap:2px}
-.tt{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:none;background:none;border-radius:8px;cursor:pointer;color:var(--text2);transition:all var(--ease)}
-.tt:hover{color:var(--accent);background:var(--accent-l)}
-.tt svg{width:18px;height:18px}
-.tt .i-sun{display:none}
-[data-theme="dark"] .tt .i-sun{display:block}
-[data-theme="dark"] .tt .i-moon{display:none}
 .nh{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--text)}.nh svg{width:22px;height:22px}
 
 .layout{position:relative;z-index:1;display:flex;max-width:1080px;margin:0 auto;padding-top:calc(var(--nh) + 40px);padding-left:40px;padding-right:40px;gap:56px}
 .sidebar{width:var(--sw);flex-shrink:0;position:sticky;top:calc(var(--nh) + 40px);align-self:flex-start}
 .ppw{position:relative;width:200px;height:200px;margin-bottom:22px}
-.ppw::before{content:'';position:absolute;inset:-9px;border-radius:50%;background:conic-gradient(from 0deg,rgba(var(--net-rgb),.55),transparent 120deg,transparent 185deg,rgba(var(--net-rgb),.35) 290deg,transparent 360deg);-webkit-mask:radial-gradient(closest-side,transparent calc(100% - 2.5px),#000 calc(100% - 1.5px));mask:radial-gradient(closest-side,transparent calc(100% - 2.5px),#000 calc(100% - 1.5px));animation:spin 18s linear infinite}
+.ppw::before{content:'';position:absolute;inset:-9px;border-radius:50%;background:conic-gradient(from 0deg,rgba(111,182,233,.6),transparent 120deg,transparent 185deg,rgba(232,196,104,.45) 290deg,transparent 360deg);-webkit-mask:radial-gradient(closest-side,transparent calc(100% - 2.5px),#000 calc(100% - 1.5px));mask:radial-gradient(closest-side,transparent calc(100% - 2.5px),#000 calc(100% - 1.5px));animation:spin 18s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.pp{width:100%;height:100%;border-radius:50%;object-fit:cover;border:4px solid var(--border-l);box-shadow:0 6px 28px rgba(0,0,0,.07);transition:border-color .35s ease}
+.pp{width:100%;height:100%;border-radius:50%;object-fit:cover;border:4px solid var(--border-l);box-shadow:0 10px 36px rgba(0,0,0,.5)}
 .sidebar h1{font-family:var(--serif);font-size:1.65rem;font-weight:700;letter-spacing:-.02em;margin-bottom:3px}
 .sidebar .role{font-family:var(--sans);font-size:.94rem;color:var(--text2);margin-bottom:18px;line-height:1.5}
 .sl{list-style:none;display:flex;flex-direction:column;gap:11px}
 .sl li{display:flex;align-items:center;gap:9px;font-size:.9rem;color:var(--text2)}
-.sl li svg{width:15px;height:15px;flex-shrink:0;opacity:.45}
+.sl li svg{width:15px;height:15px;flex-shrink:0;opacity:.5}
 .sl a{color:var(--accent);text-decoration:none;font-weight:500;transition:color var(--ease)}
 .sl a:hover{color:var(--accent-h)}
 .dv{color:var(--text3);margin:0 2px;font-weight:300}
@@ -85,26 +71,26 @@ nav.scrolled{box-shadow:0 6px 24px rgba(0,0,0,.07)}
 .main{flex:1;min-width:0;max-width:var(--mw);padding-bottom:120px}
 .sec{margin-bottom:64px}
 .st{font-family:var(--serif);font-size:1.9rem;font-weight:700;letter-spacing:-.03em;margin-bottom:22px;position:relative;padding-bottom:14px;color:var(--text)}
-.st::after{content:'';position:absolute;bottom:0;left:0;width:44px;height:3px;background:var(--accent);border-radius:2px}
+.st::after{content:'';position:absolute;bottom:0;left:0;width:44px;height:3px;background:linear-gradient(90deg,var(--accent),var(--star-gold));border-radius:2px}
 .main p{margin-bottom:16px;color:var(--text2);line-height:1.82;font-size:1rem}
-.main p a{color:var(--accent);font-weight:500;text-decoration:none;border-bottom:1px solid transparent;transition:border-color var(--ease)}
-.main p a:hover{border-bottom-color:var(--accent)}
+.main p a{color:var(--accent);font-weight:500;text-decoration:none;border-bottom:1px solid transparent;transition:border-color var(--ease),color var(--ease)}
+.main p a:hover{color:var(--accent-h);border-bottom-color:var(--accent-h)}
 .hi{color:var(--accent);font-weight:600}
 .bold{font-weight:700;color:var(--text)}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 0}
-.tag{padding:6px 16px;background:var(--tag-bg);color:var(--tag-c);border-radius:20px;font-size:.85rem;font-weight:500;transition:all var(--ease)}
-.tag:hover{background:var(--accent-l);color:var(--accent);transform:translateY(-1px)}
+.tag{padding:6px 16px;background:var(--tag-bg);color:var(--tag-c);border-radius:20px;font-size:.85rem;font-weight:500;border:1px solid var(--border-l);transition:all var(--ease)}
+.tag:hover{background:var(--accent-l);color:var(--accent-h);border-color:var(--accent);transform:translateY(-1px)}
 
 /* ---- Figure-row layout: merged Publications + Projects (image-style) ---- */
 .workrow{display:flex;gap:26px;padding:24px 0;border-bottom:1px solid var(--border-l);align-items:flex-start}
 .workrow:last-child{border-bottom:none}
 .workrow .thumb{width:300px;flex-shrink:0;border:1px solid var(--border-l);border-radius:10px;background:#fff;padding:10px;overflow:hidden;transition:border-color var(--ease),box-shadow var(--ease),transform var(--ease)}
-.workrow:hover .thumb{border-color:var(--accent);box-shadow:0 8px 26px rgba(var(--net-rgb),.13);transform:translateY(-2px)}
+.workrow:hover .thumb{border-color:var(--accent);box-shadow:0 10px 32px rgba(var(--net-rgb),.2);transform:translateY(-2px)}
 .workrow .thumb img{display:block;width:100%;height:auto;border-radius:4px;transition:transform .45s cubic-bezier(.22,1,.36,1)}
 .workrow:hover .thumb img{transform:scale(1.025)}
 .workrow .body{flex:1;min-width:0}
 .workrow .body .pt{font-size:1.14rem;line-height:1.45;margin-bottom:7px;transition:color var(--ease)}
-.workrow:hover .body .pt{color:var(--accent)}
+.workrow:hover .body .pt{color:var(--accent-h)}
 .workrow .body h3{font-family:var(--serif);font-size:1.05rem;font-weight:600;line-height:1.45;color:var(--text);margin-bottom:8px}
 .workrow .body p{font-size:.92rem;color:var(--text2);line-height:1.66;margin-bottom:10px}
 .workrow .body .ts{margin:2px 0 0}
@@ -115,42 +101,39 @@ nav.scrolled{box-shadow:0 6px 24px rgba(0,0,0,.07)}
 .more-wrap{display:none;margin-top:0}
 .more-wrap.open{display:block}
 .show-more-btn{display:flex;align-items:center;justify-content:center;gap:6px;margin:28px auto 0;padding:9px 28px;background:none;border:1.5px solid var(--border);border-radius:8px;font-family:var(--sans);font-size:.88rem;font-weight:500;color:var(--text2);cursor:pointer;transition:all var(--ease)}
-.show-more-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-l)}
+.show-more-btn:hover{border-color:var(--accent);color:var(--accent-h);background:var(--accent-l)}
 .show-more-btn svg{width:14px;height:14px;transition:transform var(--ease)}
 .show-more-btn.open svg{transform:rotate(180deg)}
 .py{font-family:var(--serif);font-weight:700;font-size:1.1rem;color:var(--accent);margin-top:28px;margin-bottom:10px}
 .psub{font-family:var(--serif);font-weight:700;font-size:1.7rem;color:var(--text);margin-top:36px;margin-bottom:6px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
-.psub::before{content:'';width:4px;height:20px;background:var(--accent);border-radius:2px}
+.psub::before{content:'';width:4px;height:20px;background:linear-gradient(180deg,var(--accent),var(--star-gold));border-radius:2px}
 .pt{font-family:var(--sans);font-weight:600;font-size:1.02rem;color:var(--text);margin-bottom:5px;line-height:1.52}
 .pa{font-family:var(--sans);font-size:.92rem;color:var(--text2);margin-bottom:3px}
 .pa strong{color:var(--accent);font-weight:700}
 .pv{font-family:var(--sans);font-size:.88rem;color:var(--text3);font-style:italic}
 .pl{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
-.pl a{font-size:.78rem;font-weight:600;text-decoration:none;color:var(--accent);padding:5px 16px;border:1.5px solid var(--accent);border-radius:6px;transition:all var(--ease);text-transform:uppercase;letter-spacing:.05em;text-align:center}
-.pl a:hover{background:var(--accent);color:#fff;transform:translateY(-1px);box-shadow:0 4px 12px rgba(var(--net-rgb),.22)}
+.pl a{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;text-decoration:none;color:var(--accent);padding:5px 14px;border:1.5px solid var(--accent);border-radius:6px;transition:all var(--ease);text-transform:uppercase;letter-spacing:.05em;text-align:center}
+.pl a svg{width:13px;height:13px;flex-shrink:0}
+.pl a:hover{background:var(--accent);color:#0a0e1a;transform:translateY(-1px);box-shadow:0 4px 16px rgba(var(--net-rgb),.3)}
 .ni{display:flex;gap:18px;padding:14px 0;border-bottom:1px solid var(--border-l);align-items:baseline}
 .ni:last-child{border-bottom:none}
 .nd{font-family:var(--sans);font-size:.85rem;font-weight:600;color:var(--accent);white-space:nowrap;min-width:82px}
 .nt{font-family:var(--sans);font-size:.95rem;color:var(--text2);line-height:1.6}
 .nt a{color:var(--accent);text-decoration:none;font-weight:500}
-.nt a:hover{text-decoration:underline}
+.nt a:hover{color:var(--accent-h);text-decoration:underline}
 .badge{display:inline-block;padding:2px 9px;border-radius:4px;font-size:.74rem;font-weight:600;margin-right:5px;vertical-align:1px}
-.b-oral{background:#e8f5e9;color:#2e7d32}
-.b-poster{background:#fff3e0;color:#e65100}
+.b-oral{background:rgba(86,190,120,.16);color:#8fdba2}
+.b-poster{background:rgba(240,150,70,.16);color:#f6bb84}
 .b-paper{background:var(--accent-l);color:var(--accent)}
-.b-patent{background:#f3e5f5;color:#7b1fa2}
-[data-theme="dark"] .b-oral{background:rgba(76,175,80,.16);color:#8fd694}
-[data-theme="dark"] .b-poster{background:rgba(230,110,30,.16);color:#ffb877}
-[data-theme="dark"] .b-patent{background:rgba(156,80,182,.18);color:#d6a3e6}
-.cb{padding:26px 30px;border:1px solid var(--border);border-radius:12px;background:var(--surface);margin-top:14px;display:inline-block;transition:transform var(--ease),box-shadow var(--ease),border-color var(--ease),background-color .35s ease}
+.b-patent{background:rgba(178,120,235,.16);color:#cfaaf0}
+.cb{padding:26px 30px;border:1px solid var(--border);border-radius:12px;background:var(--surface);margin-top:14px;display:inline-block;transition:transform var(--ease),box-shadow var(--ease),border-color var(--ease)}
 .cb:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:var(--card-shadow)}
 .cb h3{font-family:var(--serif);font-weight:600;font-size:1.02rem;margin-bottom:6px}
 .cb a{color:var(--accent);text-decoration:none;font-weight:500;font-size:.98rem}
-.cb a:hover{text-decoration:underline}
+.cb a:hover{color:var(--accent-h);text-decoration:underline}
 .ai{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--border-l);align-items:flex-start}
 .ai:last-child{border-bottom:none}
-.a-icon{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#fff8e1,#ffe082);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem;box-shadow:0 2px 8px rgba(255,193,7,.18)}
-[data-theme="dark"] .a-icon{background:linear-gradient(135deg,rgba(255,193,7,.14),rgba(255,160,0,.22));box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.a-icon{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,rgba(232,196,104,.16),rgba(214,158,46,.28));display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem;box-shadow:0 2px 12px rgba(232,196,104,.12)}
 @keyframes wiggle{0%,100%{transform:rotate(0)}30%{transform:rotate(-9deg)}70%{transform:rotate(9deg)}}
 .ai:hover .a-icon{animation:wiggle .5s ease}
 .a-body{flex:1}
@@ -161,7 +144,7 @@ footer{position:relative;z-index:1;text-align:center;padding:44px 20px;font-size
 /* ---- Back to top ---- */
 .btt{position:fixed;right:26px;bottom:26px;width:44px;height:44px;border-radius:12px;border:1px solid var(--border);background:var(--surface);color:var(--text2);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;visibility:hidden;transform:translateY(10px);transition:all var(--ease);z-index:90;box-shadow:var(--card-shadow)}
 .btt.show{opacity:1;visibility:visible;transform:none}
-.btt:hover{color:var(--accent);border-color:var(--accent)}
+.btt:hover{color:var(--accent-h);border-color:var(--accent)}
 .btt svg{width:18px;height:18px}
 
 /* ---- Scroll-reveal (applied only when JS is active) ---- */
@@ -202,10 +185,6 @@ nav{padding:0 20px}
 <a class="nn" href="#about">Hanyeol Ryu</a>
 <div class="nl" id="nv"><a href="#about" class="active">About</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#awards">Awards</a><a href="#news">News</a><a href="#contact">Contact</a></div>
 <div class="nr">
-<button class="tt" id="themeToggle" aria-label="Toggle dark mode" onclick="toggleTheme()">
-<svg class="i-moon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-<svg class="i-sun" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-</button>
 <button class="nh" aria-label="Open menu" onclick="document.getElementById('nv').classList.toggle('open')"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
 </div>
 </nav>
@@ -261,7 +240,7 @@ nav{padding:0 20px}
 <div class="pt">Integrated Sensing and Backscatter Communication (ISABC): Toward Self-Sustainable Autonomous IoT Networks</div>
 <div class="pa">N. Ha, <strong>H. Ryu</strong>, H. Jeong, H. Kim, G. Kim, A. Georgiadis, M. M. Tentzeris, and S. Kim<sup style="font-size:.9em">*</sup></div>
 <div class="pv"><em>IEEE Microwave Magazine</em>, <span style="font-style: normal;">Jun. 2026</span></div>
-<div class="pl"><a href="javascript:void(0)">PDF (TBA)</a></div>
+<div class="pl"><a href="javascript:void(0)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>PDF (TBA)</a></div>
 </div>
 </div>
 
@@ -272,9 +251,9 @@ nav{padding:0 20px}
 <div class="pa"><strong>H. Ryu</strong><sup style="font-size:.9em">&dagger;</sup> and S. Kim<sup style="font-size:.9em">*</sup></div>
 <div class="pv"><em>IEEE Internet of Things Journal</em>, <span style="font-style: normal;">May 2026</span></div>
 <div class="pl">
-<a href="Ultra-low-power_Monostatic_Backscatter_Platform_with_Phase-Aware_Channel_Estimation_and_System-Level_Validation_f1.pdf">PDF</a>
-<a href="https://github.com/hyrecon/Phase-Aware-Channel-Estimation/tree/main" target="_blank">Code</a>
-<a href="https://www.youtube.com/watch?v=pwyy--7GOnE" target="_blank">Demo Video</a>
+<a href="Ultra-low-power_Monostatic_Backscatter_Platform_with_Phase-Aware_Channel_Estimation_and_System-Level_Validation_f1.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>PDF</a>
+<a href="https://github.com/hyrecon/Phase-Aware-Channel-Estimation/tree/main" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>Code</a>
+<a href="https://www.youtube.com/watch?v=pwyy--7GOnE" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z"/></svg>Demo Video</a>
 </div>
 </div>
 </div>
@@ -287,7 +266,7 @@ nav{padding:0 20px}
 <div class="pt">Improved Backscattering Communication Range Using Reflection Amplifiers</div>
 <div class="pa">J. Choi<sup style="font-size:.9em">&dagger;</sup>, <strong>H. Ryu</strong><sup style="font-size:.9em">&dagger;</sup>, and S. Kim<sup style="font-size:.9em">*</sup></div>
 <div class="pv"><em>The Journal of Korean Institute of Electromagnetic Engineering and Science</em>, <span style="font-style: normal;">Feb. 2025</span></div>
-<div class="pl"><a href="jkiees-36-3-266.pdf">PDF</a></div>
+<div class="pl"><a href="jkiees-36-3-266.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>PDF</a></div>
 </div>
 </div>
 
@@ -302,8 +281,8 @@ nav{padding:0 20px}
 <div class="pa"><strong>H. Ryu</strong><sup style="font-size:.9em">&dagger;</sup> and S. Kim<sup style="font-size:.9em">*</sup></div>
 <div class="pv"><em>IEEE International Symposium on Intelligent Signal Processing and Communication Systems (ISPACS)</em>, <span style="font-style: normal;">Oct. 2026</span></div>
 <div class="pl">
-<a href="ISPACS2026_rgcnn_v0.pdf">PDF</a>
-<a href="https://github.com/hyrecon/Deep-Learning-Aided-Phase-Aware-Channel-Estimation-RG-CNN-/tree/main" target="_blank">Code</a>
+<a href="ISPACS2026_rgcnn_v0.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>PDF</a>
+<a href="https://github.com/hyrecon/Deep-Learning-Aided-Phase-Aware-Channel-Estimation-RG-CNN-/tree/main" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>Code</a>
 </div>
 </div>
 </div>
@@ -317,8 +296,8 @@ nav{padding:0 20px}
 <div class="pa"><strong>H. Ryu</strong><sup style="font-size:.9em">&dagger;</sup> and S. Kim<sup style="font-size:.9em">*</sup></div>
 <div class="pv"><em>IEEE International Symposium on Antennas and Propagation (AP-S)</em>, <span style="font-style: normal;">Jul. 2025</span></div>
 <div class="pl">
-<a href="High-Isolation_Yagi-Uda_Antenna_Array_Using_Split-Ring_Resonators_for_Practical_Backscatter_System_f1.pdf">PDF</a>
-<a href="https://github.com/hyrecon/Backscatter-Multimedia-Communication-System/tree/main" target="_blank">Code</a>
+<a href="High-Isolation_Yagi-Uda_Antenna_Array_Using_Split-Ring_Resonators_for_Practical_Backscatter_System_f1.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>PDF</a>
+<a href="https://github.com/hyrecon/Backscatter-Multimedia-Communication-System/tree/main" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>Code</a>
 </div>
 </div>
 </div>
@@ -336,7 +315,7 @@ nav{padding:0 20px}
 <div class="body">
 <div class="pt">Accessible Smart Auto Shopping Cart</div>
 <div class="pv"><span style="font-style: normal;">Hackathon, Pusan National University, Aug. 2023</span></div>
-<div class="pl"><a href="https://github.com/hyrecon/Hackathon/tree/main" target="_blank">Code</a></div>
+<div class="pl"><a href="https://github.com/hyrecon/Hackathon/tree/main" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>Code</a></div>
 </div>
 </div>
 
@@ -345,7 +324,7 @@ nav{padding:0 20px}
 <div class="body">
 <div class="pt">Smart Farm, Hollow Clock, and Memory Game</div>
 <div class="pv"><span style="font-style: normal;">Overseas volunteering program, Thailand, Dec. 2022 ~ Feb. 2023</span></div>
-<div class="pl"><a href="textbook.pdf" target="_blank">Textbook</a><a href="https://github.com/hyrecon/Overseas-Volunteering/tree/main" target="_blank">Code</a></div>
+<div class="pl"><a href="textbook.pdf" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>Textbook</a><a href="https://github.com/hyrecon/Overseas-Volunteering/tree/main" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>Code</a></div>
 </div>
 </div>
 
@@ -399,14 +378,6 @@ nav{padding:0 20px}
 <footer>&#xa9; 2026 Hanyeol Ryu.</footer>
 
 <script>
-/* ---- Theme toggle ---- */
-function toggleTheme(){
-  var h=document.documentElement;
-  if(h.getAttribute('data-theme')==='dark'){h.removeAttribute('data-theme');}
-  else{h.setAttribute('data-theme','dark');}
-  if(window.__netRefresh)window.__netRefresh();
-}
-
 /* ---- Active nav highlighting ---- */
 var ss=document.querySelectorAll('.sec');
 var nl=document.querySelectorAll('.nl a');
@@ -495,38 +466,47 @@ function toggleSection(contentId,btnId,label){
   onScroll();
 })();
 
-/* ---- Neural-network ambient canvas ----
-   Drifting nodes linked by proximity, with occasional signal
-   pulses traveling along edges (neural activations / RF links). */
+/* ---- Night-sky canvas ----
+   Layers: twinkling starfield with slow scroll parallax,
+   drifting constellation network with signal pulses along edges,
+   and occasional shooting stars. */
 (function(){
   var c=document.getElementById('net');
   if(!c||!c.getContext)return;
   var ctx=c.getContext('2d');
   var DPR=Math.min(window.devicePixelRatio||1,2);
-  var W=0,H=0,nodes=[],pulses=[],raf=null,running=false,rt=null;
+  var W=0,H=0,stars=[],bright=[],nodes=[],pulses=[],meteors=[];
+  var raf=null,running=false,rt=null,t=0,sy=0;
   var mouse={x:-1e4,y:-1e4};
   var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var LINK=130,LINK2=LINK*LINK;
-  var col=[29,93,138];
+  var LINK=140,LINK2=LINK*LINK;
+  var BLUE=[156,200,236],GOLD=[232,196,104],WHITE=[235,242,252];
 
-  function readColor(){
-    var v=getComputedStyle(document.documentElement).getPropertyValue('--net-rgb');
-    if(v){
-      var p=v.split(',').map(Number);
-      if(p.length===3&&!p.some(isNaN))col=p;
-    }
-  }
-  function rgba(a){return 'rgba('+col[0]+','+col[1]+','+col[2]+','+a+')';}
+  function rgba(cl,a){return 'rgba('+cl[0]+','+cl[1]+','+cl[2]+','+a+')';}
 
   function build(){
-    var n=Math.max(34,Math.min(85,Math.round(W*H/22000)));
-    nodes=[];pulses=[];
-    for(var i=0;i<n;i++){
-      nodes.push({
-        x:Math.random()*W,y:Math.random()*H,
-        vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,
-        r:1+Math.random()*1.6
-      });
+    stars=[];bright=[];nodes=[];pulses=[];meteors=[];
+    var ns=Math.max(90,Math.min(260,Math.round(W*H/8500)));
+    var i;
+    for(i=0;i<ns;i++){
+      stars.push({x:Math.random()*W,y:Math.random()*H,
+        r:.4+Math.random()*1.1,
+        a:.25+Math.random()*.5,
+        sp:.008+Math.random()*.02,
+        ph:Math.random()*6.2832,
+        c:Math.random()<.14?GOLD:WHITE});
+    }
+    for(i=0;i<6;i++){
+      bright.push({x:Math.random()*W,y:Math.random()*H,
+        r:1.5+Math.random()*.8,g:5+Math.random()*4,
+        sp:.006+Math.random()*.012,ph:Math.random()*6.2832,
+        c:Math.random()<.4?GOLD:WHITE});
+    }
+    var nn=Math.max(30,Math.min(80,Math.round(W*H/26000)));
+    for(i=0;i<nn;i++){
+      nodes.push({x:Math.random()*W,y:Math.random()*H,
+        vx:(Math.random()-.5)*.16,vy:(Math.random()-.5)*.16,
+        r:1.1+Math.random()*1.5});
     }
   }
   function resize(){
@@ -537,7 +517,7 @@ function toggleSection(contentId,btnId,label){
     build();
     if(RM)draw();
   }
-  function spawn(){
+  function spawnPulse(){
     if(nodes.length<2)return;
     var a=nodes[(Math.random()*nodes.length)|0],best=null,bd=LINK2;
     for(var k=0;k<10;k++){
@@ -548,8 +528,21 @@ function toggleSection(contentId,btnId,label){
     }
     if(best)pulses.push({a:a,b:best,t:0,sp:.011+Math.random()*.012});
   }
+  function spawnMeteor(){
+    var dir=Math.random()<.5?1:-1;
+    meteors.push({
+      x:dir>0?Math.random()*W*.5:W*.5+Math.random()*W*.5,
+      y:Math.random()*H*.35,
+      vx:dir*(6.5+Math.random()*4),
+      vy:3+Math.random()*2.6,
+      age:0,maxAge:60+Math.random()*25,
+      tail:14+Math.random()*8
+    });
+  }
   function step(){
-    for(var i=0;i<nodes.length;i++){
+    t++;
+    var i;
+    for(i=0;i<nodes.length;i++){
       var p=nodes[i];
       var dx=mouse.x-p.x,dy=mouse.y-p.y,d2=dx*dx+dy*dy;
       if(d2<25600){
@@ -558,45 +551,94 @@ function toggleSection(contentId,btnId,label){
       }
       p.vx*=.995;p.vy*=.995;
       var sp=p.vx*p.vx+p.vy*p.vy;
-      if(sp<.0009){p.vx+=(Math.random()-.5)*.02;p.vy+=(Math.random()-.5)*.02;}
-      if(sp>.36){p.vx*=.9;p.vy*=.9;}
+      if(sp<.0006){p.vx+=(Math.random()-.5)*.016;p.vy+=(Math.random()-.5)*.016;}
+      if(sp>.25){p.vx*=.9;p.vy*=.9;}
       p.x+=p.vx;p.y+=p.vy;
       if(p.x<-20)p.x=W+20;if(p.x>W+20)p.x=-20;
       if(p.y<-20)p.y=H+20;if(p.y>H+20)p.y=-20;
     }
-    if(pulses.length<6&&Math.random()<.05)spawn();
+    if(pulses.length<6&&Math.random()<.05)spawnPulse();
     for(var j=pulses.length-1;j>=0;j--){
       pulses[j].t+=pulses[j].sp;
       if(pulses[j].t>=1)pulses.splice(j,1);
     }
+    if(meteors.length<2&&Math.random()<.005)spawnMeteor();
+    for(j=meteors.length-1;j>=0;j--){
+      var m=meteors[j];
+      m.x+=m.vx;m.y+=m.vy;m.age++;
+      if(m.age>=m.maxAge||m.x<-80||m.x>W+80||m.y>H+80)meteors.splice(j,1);
+    }
+  }
+  function wrapY(y,off){
+    var v=(y-off)%H;
+    return v<0?v+H:v;
   }
   function draw(){
     ctx.clearRect(0,0,W,H);
-    var i,j;
+    var i,off1=sy*.05,off2=sy*.09;
+    /* starfield */
+    for(i=0;i<stars.length;i++){
+      var s=stars[i];
+      var al=RM?s.a:s.a*(.72+.28*Math.sin(t*s.sp+s.ph));
+      ctx.fillStyle=rgba(s.c,al);
+      ctx.beginPath();ctx.arc(s.x,wrapY(s.y,off1),s.r,0,6.2832);ctx.fill();
+    }
+    /* bright stars with glints */
+    for(i=0;i<bright.length;i++){
+      var b=bright[i];
+      var ba=RM?.7:(.55+.35*Math.sin(t*b.sp+b.ph));
+      var by=wrapY(b.y,off2);
+      ctx.fillStyle=rgba(b.c,ba);
+      ctx.beginPath();ctx.arc(b.x,by,b.r,0,6.2832);ctx.fill();
+      ctx.strokeStyle=rgba(b.c,ba*.45);
+      ctx.lineWidth=1;
+      ctx.beginPath();
+      ctx.moveTo(b.x-b.g,by);ctx.lineTo(b.x+b.g,by);
+      ctx.moveTo(b.x,by-b.g);ctx.lineTo(b.x,by+b.g);
+      ctx.stroke();
+    }
+    /* constellation links */
+    var j;
     for(i=0;i<nodes.length;i++){
       for(j=i+1;j<nodes.length;j++){
-        var a=nodes[i],b=nodes[j];
-        var dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy;
+        var a=nodes[i],n=nodes[j];
+        var dx=a.x-n.x,dy=a.y-n.y,d2=dx*dx+dy*dy;
         if(d2<LINK2){
-          ctx.strokeStyle=rgba((1-Math.sqrt(d2)/LINK)*.14);
+          ctx.strokeStyle=rgba(BLUE,(1-Math.sqrt(d2)/LINK)*.17);
           ctx.lineWidth=1;
-          ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+          ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(n.x,n.y);ctx.stroke();
         }
       }
     }
+    /* constellation nodes */
     for(i=0;i<nodes.length;i++){
       var p=nodes[i];
-      ctx.fillStyle=rgba(.34);
+      ctx.fillStyle=rgba(BLUE,.5);
       ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,6.2832);ctx.fill();
     }
+    /* signal pulses along edges */
     for(i=0;i<pulses.length;i++){
-      var u=pulses[i],t=u.t;
-      var x=u.a.x+(u.b.x-u.a.x)*t,y=u.a.y+(u.b.y-u.a.y)*t;
-      var fade=t<.15?t/.15:(t>.85?(1-t)/.15:1);
-      ctx.fillStyle=rgba(.12*fade);
+      var u=pulses[i],tt=u.t;
+      var x=u.a.x+(u.b.x-u.a.x)*tt,y=u.a.y+(u.b.y-u.a.y)*tt;
+      var fade=tt<.15?tt/.15:(tt>.85?(1-tt)/.15:1);
+      ctx.fillStyle=rgba(GOLD,.12*fade);
       ctx.beginPath();ctx.arc(x,y,6,0,6.2832);ctx.fill();
-      ctx.fillStyle=rgba(.75*fade);
+      ctx.fillStyle=rgba(GOLD,.8*fade);
       ctx.beginPath();ctx.arc(x,y,2,0,6.2832);ctx.fill();
+    }
+    /* shooting stars */
+    for(i=0;i<meteors.length;i++){
+      var mm=meteors[i];
+      var env=Math.sin(Math.min(mm.age/mm.maxAge,1)*3.1416);
+      var tx=mm.x-mm.vx*mm.tail,ty=mm.y-mm.vy*mm.tail;
+      var g=ctx.createLinearGradient(mm.x,mm.y,tx,ty);
+      g.addColorStop(0,rgba(WHITE,.85*env));
+      g.addColorStop(1,rgba(WHITE,0));
+      ctx.strokeStyle=g;
+      ctx.lineWidth=1.6;
+      ctx.beginPath();ctx.moveTo(mm.x,mm.y);ctx.lineTo(tx,ty);ctx.stroke();
+      ctx.fillStyle=rgba(WHITE,.9*env);
+      ctx.beginPath();ctx.arc(mm.x,mm.y,1.4,0,6.2832);ctx.fill();
     }
   }
   function loop(){step();draw();raf=requestAnimationFrame(loop);}
@@ -604,12 +646,12 @@ function toggleSection(contentId,btnId,label){
   function stop(){running=false;if(raf)cancelAnimationFrame(raf);raf=null;}
 
   window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(resize,150);});
+  window.addEventListener('scroll',function(){sy=window.pageYOffset||document.documentElement.scrollTop||0;},{passive:true});
   window.addEventListener('mousemove',function(e){mouse.x=e.clientX;mouse.y=e.clientY;},{passive:true});
   window.addEventListener('mouseout',function(){mouse.x=-1e4;mouse.y=-1e4;});
   document.addEventListener('visibilitychange',function(){if(document.hidden){stop();}else{start();}});
-  window.__netRefresh=function(){readColor();if(RM)draw();};
 
-  readColor();resize();start();
+  resize();start();
 })();
 </script>
 </body>
