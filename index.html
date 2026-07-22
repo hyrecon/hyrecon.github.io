@@ -29,6 +29,7 @@
 --chip:#1b1b1b;
 --desc:#b8a67e;
 --desc-glow:184,166,126;
+--author:#d8d8d8;
 --viz-bg:#11182a;
 --card-bg:linear-gradient(180deg,rgba(20,28,48,.92),rgba(13,18,32,.92));
 --btn-fg:#000000;
@@ -52,6 +53,7 @@ html[data-theme="light"]{
 --chip:#f1f1ed;
 --desc:#8a7440;
 --desc-glow:138,116,64;
+--author:#464b52;
 --viz-bg:#ffffff;
 --card-bg:#fbfbf9;
 --btn-fg:#ffffff;
@@ -69,9 +71,9 @@ img{max-width:100%;display:block}
 
 /* ============ HERO ============ */
 .hero{background:var(--bg);padding:104px 40px 84px}
-.hero-in{max-width:var(--mw);margin:0 auto;display:flex;gap:60px;align-items:flex-start}
-.hero-aside{width:216px;flex-shrink:0}
-.pp{width:168px;height:168px;border-radius:50%;object-fit:cover;border:1px solid #2e2e2e;margin-bottom:26px;box-shadow:0 10px 40px rgba(0,0,0,.7)}
+.hero-in{max-width:var(--mw);margin:0 auto;display:flex;gap:56px;align-items:flex-start}
+.hero-aside{width:228px;flex-shrink:0}
+.pp{width:200px;height:200px;border-radius:50%;object-fit:cover;border:1px solid #2e2e2e;margin-bottom:26px;box-shadow:0 10px 40px rgba(0,0,0,.7)}
 .sl{list-style:none;display:flex;flex-direction:column;gap:12px}
 .sl li{display:flex;align-items:center;gap:10px;font-size:.94rem;color:var(--text3);line-height:1.5}
 .sl li svg{width:15px;height:15px;flex-shrink:0;opacity:.92;color:var(--text2)}
@@ -98,14 +100,14 @@ img{max-width:100%;display:block}
 .rcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--rc),transparent);opacity:.7}
 .rcard:hover{transform:translateY(-4px);border-color:var(--rc);box-shadow:0 16px 40px rgba(0,0,0,.5)}
 .rc-w{--rc:#6fb6e9}.rc-a{--rc:#e8c468}.rc-i{--rc:#b287ea}
-.rcard svg.viz{display:block;width:100%;height:auto;margin-bottom:14px}
+.rcard svg.viz{display:block;width:90%;height:auto;margin:0 auto 14px}
 .rcard h3{font-family:var(--sans);font-size:1.16rem;font-weight:600;color:var(--text);line-height:1.4;margin-bottom:9px;letter-spacing:-.01em;text-wrap:balance}
 .rcard p{font-size:.93rem;color:var(--text3);line-height:1.66}
 .hi{color:var(--link);font-weight:600}
 .bold{font-weight:700;color:var(--text)}
 .kw-label{font-size:1.02rem;color:var(--text2);margin-bottom:14px}
 .tags{display:flex;flex-wrap:wrap;gap:8px}
-.tag{padding:5px 14px;background:var(--chip);color:var(--text3);border:1px solid var(--border);border-radius:20px;font-size:.86rem;font-weight:400;transition:all var(--ease)}
+.tag{padding:5px 14px;background:var(--chip);color:var(--text2);border:1px solid var(--border);border-radius:20px;font-size:.86rem;font-weight:400;transition:all var(--ease)}
 .tag:hover{color:var(--text);border-color:#3a3a3a}
 
 /* ============ PUBLICATIONS ============ */
@@ -122,7 +124,7 @@ img{max-width:100%;display:block}
 .pub .body{flex:1;min-width:0}
 .ptitle{font-size:1.06rem;font-weight:600;color:var(--link);line-height:1.45;margin-bottom:6px;letter-spacing:-.005em}
 .pub:hover .ptitle{color:var(--link-h)}
-.pa{font-size:1rem;color:var(--text3);line-height:1.55;margin-bottom:3px;font-weight:400}
+.pa{font-size:1rem;color:var(--author);line-height:1.55;margin-bottom:3px;font-weight:400}
 .pa strong{color:var(--text);font-weight:700;letter-spacing:.005em}
 .pv{font-size:.98rem;color:var(--text3);font-style:italic;line-height:1.55}
 .pl{margin-top:11px;display:flex;flex-wrap:wrap;gap:7px}
@@ -161,7 +163,7 @@ html{scroll-behavior:auto}
 .hero{padding:64px 24px 56px}
 .hero-in{flex-direction:column;gap:32px}
 .hero-aside{width:100%}
-.pp{width:132px;height:132px;margin-bottom:22px}
+.pp{width:156px;height:156px;margin-bottom:22px}
 .hero-main p{max-width:none}
 .band{padding:56px 24px}
 .pub{flex-direction:column;gap:16px}
@@ -203,7 +205,7 @@ footer{padding:36px 24px 44px}
 <div class="hero-main">
 <h1>Hanyeol Ryu</h1>
 <div class="role">Research Assistant &middot; Dept. of Electronics Engineering, Pusan National University</div>
-<p>Hi ! My name is <span class="bold">Hanyeol Ryu</span> (You can just call me Hanyeol :D) and I am a research assistant in the Department of Electronics Engineering at <a href="javascript:void(0)">Pusan National University</a> <span class="bold">(B.S. '26)</span>, advised by <a href="javascript:void(0)">Prof. Sangkil Kim</a>.</p>
+<p>Hi ! My name is <span class="bold">Hanyeol Ryu</span> (You can just call me Hanyeol :D) and I am a research assistant in the Department of Electronics Engineering at <a href="javascript:void(0)">Pusan National University</a> <span class="bold">(B.S. '26)</span>, advised by <a href="javascript:void(0)">Prof. Sangkil Kim</a>.
 <p>Outside the lab, you'll find me swimming &#x1F3CA;, running &#x1F3C3;, making coffee &#x2615;, or exploring electronics &#x1F4BB; just for the fun of understanding how they work.</p>
 <p>I'm curious about the enduring philosophical questions &#x2014; what is justice, and how ought we to live &#x1F468;&#x200D;&#x1F9B3; &#x2014; as well as the mysteries of the universe &#x1FA90;, like what happens to information inside a black hole &#x26AB;. I always welcome a conversation about any of these over coffee.</p>
 </div>
