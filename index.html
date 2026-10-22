@@ -14,7 +14,7 @@
 <link rel="icon" type="image/png" href="logo_PNU.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
 --bg:#000000;
@@ -96,9 +96,6 @@ html[data-theme="light"] .pp{box-shadow:none}
 .sl a{color:var(--text2);font-weight:400}
 .sl a:hover{color:var(--link-h)}
 .sidebar-block{width:max-content;max-width:100%}
-.cv-btn{display:flex;align-items:center;justify-content:flex-start;gap:8px;width:100%;box-sizing:border-box;white-space:nowrap;margin-top:16px;padding:9px 14px;border:1px solid var(--border);border-radius:8px;background:var(--chip);color:var(--text2);font-size:.86rem;font-weight:500;letter-spacing:.01em;transition:all var(--ease)}
-.cv-btn:hover{color:var(--text);border-color:var(--text3);transform:translateY(-1px)}
-.cv-btn svg{width:14px;height:14px;flex-shrink:0}
 
 .hero-main{flex:1;min-width:0}
 .hero-main h1{font-family:var(--serif);font-size:clamp(2.35rem,3.8vw,3.25rem);font-weight:700;letter-spacing:-.018em;line-height:1.04;color:var(--text);margin-bottom:10px}
@@ -107,6 +104,39 @@ html[data-theme="light"] .pp{box-shadow:none}
 .hero-main p:last-child{margin-bottom:0}
 .hero-main strong{color:var(--text);font-weight:600}
 
+/* CV reference beneath the biography. */
+.cv-section{margin-top:26px;padding-top:18px;border-top:1px solid var(--border)}
+.hero-main .cv-intro{
+  margin:0 0 12px;
+  font-size:.88rem;
+  line-height:1.75;
+  color:var(--text2);
+}
+.cv-question{font-weight:500;color:var(--text)}
+.cv-smile{font-style:normal;white-space:nowrap}
+.cv-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  max-width:100%;
+  padding:7px 12px;
+  border:1px solid color-mix(in srgb,var(--text3) 35%,var(--border));
+  border-radius:6px;
+  background:transparent;
+  color:var(--text2);
+  font-size:.8rem;
+  font-weight:500;
+  line-height:1.5;
+  text-decoration:none;
+  transition:color var(--ease),border-color var(--ease),background-color var(--ease);
+}
+.cv-btn .cv-file-icon{width:14px;height:14px;flex-shrink:0}
+.cv-label{white-space:nowrap}
+.cv-btn:hover{
+  color:var(--link-h);
+  border-color:var(--link);
+  background:var(--bg-alt);
+}
 /* ============ SECTION SHELL ============ */
 .band{padding:76px 40px}
 #research.band{padding-top:36px;padding-bottom:52px}
@@ -231,6 +261,8 @@ footer{padding:36px 24px 44px}
 <li><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 01-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/></svg><a href="https://orcid.org/0009-0001-5511-4406" target="_blank" rel="noopener noreferrer">ORCID</a></li>
 <li><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 24a7 7 0 110-14 7 7 0 010 14zm0-24L0 9.5l4.838 3.94A8 8 0 0112 9a8 8 0 017.162 4.44L24 9.5z"/></svg><a href="https://scholar.google.com/citations?user=NFQ9YZUAAAAJ&hl=ko" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
 </ul>
+
+</div>
 </aside>
 
 <div class="hero-main">
@@ -240,11 +272,19 @@ footer{padding:36px 24px 44px}
 My work focuses on developing low-power wireless systems that communicate efficiently and operate reliably in real-world environments, while exploring how AI/ML can further improve their performance and adaptability.</p>
 <p>Outside the lab, you'll find me swimming &#x1F3CA;, running &#x1F3C3;, making coffee &#x2615;, or exploring electronics &#x1F4BB; just for the fun of understanding how they work.</p>
 <p>I'm also curious about the enduring philosophical questions &#x2014; what is justice, and how ought we to live &#x1F468;&#x200D;&#x1F9B3; &#x2014; as well as the mysteries of the universe &#x1FA90;, like what happens to information inside a black hole &#x26AB;. I always welcome a conversation about any of these over coffee.</p>
-<p>
-  Want to know more about my background? Feel free to take a look at my
-  <a href="Curriculum Vitae_HY_PW.pdf"
-     target="_blank" rel="noopener noreferrer">CV</a> 🙂
-</p>
+<div class="cv-section">
+  <p class="cv-intro">
+    <span class="cv-question">Want to know more about my background?</span>
+    Feel free to take a look at my CV below <span class="cv-smile">&#x1F642;</span>
+  </p>
+  <a class="cv-btn" href="Curriculum Vitae_HY_PW.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open my curriculum vitae (PDF, new tab)">
+    <svg class="cv-file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+      <path d="M14 2v6h6M8 13h8M8 17h5"/>
+    </svg>
+    <span class="cv-label">Curriculum Vitae (CV)</span>
+  </a>
+</div>
 </div>
 
 </div>
